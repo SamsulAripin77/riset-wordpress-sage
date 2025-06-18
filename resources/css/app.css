@@ -3,7 +3,3 @@
 @source "../../app/";
 
 @import 'flowbite'; /* Tambah di bagian bawah */
-
-nav a {
-  text-decoration: none !important;
-}
