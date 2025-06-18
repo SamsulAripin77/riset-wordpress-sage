@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+<h1 class="text-3xl">Judul dengan Crimson Text</h1>
+<p>Body default (font tidak Crimson)</p>
+<h1 class="text-3xl font-poppins">Ini Judul Poppins</h1>
+<h1 class="text-3xl font-sans">Ini paragraf Roboto (body)</h1>
+<p class="font-sans"></p>
   @include('partials.page-header')
 
   @if (! have_posts())

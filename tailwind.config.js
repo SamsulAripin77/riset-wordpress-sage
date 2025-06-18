@@ -5,7 +5,11 @@ module.exports = {
     './node_modules/flowbite/**/*.js',  // Flowbite
   ],
   theme: {
-    extend: {},
+    extend: {
+        fontFamily: {
+            crimson: ['Crimson Text', 'serif'],
+      }
+    },
   },
   plugins: [
     require('flowbite/plugin'),
