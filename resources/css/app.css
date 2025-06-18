@@ -4,3 +4,29 @@
 
 @import './fonts.css';
 @import 'flowbite'; /* Tambah di bagian bawah */
+
+
+/* Text colors */
+.text-primary       { @apply text-gray-800; }
+.text-secondary     { @apply text-gray-600; }
+.text-muted         { @apply text-gray-400; }
+.text-accent        { @apply text-blue-600; }
+.text-accent-hover  { @apply hover:text-blue-700; }
+
+/* Background colors */
+.bg-primary         { @apply bg-white; }
+.bg-secondary       { @apply bg-gray-50; }
+.bg-muted           { @apply bg-gray-100; }
+.bg-accent          { @apply bg-blue-600; }
+.bg-accent-hover    { @apply hover:bg-blue-700; }
+
+/* Border & ring colors */
+.border-accent      { @apply border-blue-200; }
+.focus-ring-accent  { @apply focus:ring-blue-500; }
+
+/* Text sizes */
+.main-text    { @apply text-base md:text-base; }     /* default body */
+.small-text   { @apply text-sm md:text-sm; }         /* labels, small notes */
+.lead-text    { @apply text-lg md:text-lg; }         /* subtitle or lead paragraph */
+.title-text   { @apply text-xl md:text-2xl; }        /* card title */
+.hero-text    { @apply text-3xl md:text-5xl; }    
