@@ -1,0 +1,58 @@
+<?php
+
+namespace App\View\Composers;
+
+use Roots\Acorn\View\Composer;
+
+class Navigation extends Composer
+{
+    /**
+     * List of views served by this composer.
+     */
+    protected static $views = [
+        'partials.header', // Sesuaikan nama view partial
+    ];
+
+    public function with()
+    {
+        return [
+            'menu_items' => $this->menuItems(),
+        ];
+    }
+
+    protected function menuItems()
+    {
+        if (!has_nav_menu('primary_navigation')) {
+            return [];
+        }
+
+        $locations = get_nav_menu_locations();
+        $menu_id = $locations['primary_navigation'] ?? null;
+        if (!$menu_id) {
+            return [];
+        }
+        $raw_items = wp_get_nav_menu_items($menu_id);
+
+        // Susun nested
+        $refs = [];
+        foreach ($raw_items as $item) {
+            $refs[$item->ID] = [
+                'ID' => $item->ID,
+                'title' => $item->title,
+                'url' => $item->url,
+                'parent' => $item->menu_item_parent,
+                'children' => [],
+            ];
+        }
+        $tree = [];
+        foreach ($refs as $id => &$item) {
+            if ($item['parent'] && isset($refs[$item['parent']])) {
+                $refs[$item['parent']]['children'][] = &$item;
+            } else {
+                $tree[] = &$item;
+            }
+        }
+        unset($item);
+        return $tree;
+    }
+}

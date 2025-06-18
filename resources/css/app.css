@@ -1,5 +1,9 @@
-@import "tailwindcss" theme(static);
+@import "tailwindcss";
 @source "../views/";
 @source "../../app/";
 
 @import 'flowbite'; /* Tambah di bagian bawah */
+
+nav a {
+  text-decoration: none !important;
+}
