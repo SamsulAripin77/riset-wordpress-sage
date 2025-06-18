@@ -8,6 +8,8 @@ module.exports = {
     extend: {
         fontFamily: {
             crimson: ['Crimson Text', 'serif'],
+            roboto: ['Roboto']
+
       }
     },
   },
