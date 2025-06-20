@@ -12,3 +12,5 @@ window.Alpine = Alpine
 Alpine.start()
 
 import '../css/app.scss';
+
+
