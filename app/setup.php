@@ -153,3 +153,10 @@ add_action('widgets_init', function () {
         'id' => 'sidebar-footer',
     ] + $config);
 });
+
+add_action('template_redirect', function () {
+    if (is_page('login') && is_user_logged_in()) {
+        wp_redirect(home_url('/'));
+        exit;
+    }
+});
