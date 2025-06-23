@@ -155,7 +155,7 @@ add_action('widgets_init', function () {
 });
 
 add_action('template_redirect', function () {
-    if (is_page('login') && is_user_logged_in()) {
+    if ((is_page('login') || is_page('register')) && is_user_logged_in()) {
         wp_redirect(home_url('/'));
         exit;
     }

@@ -92,18 +92,6 @@ add_action('wp_enqueue_scripts', function () {
 
     // === Localize script_vars ===
     handle_glboal_js_var($handle);
-
-    // Enqueue related CSS (jika ada dalam entry JS)
-    if (!empty($manifest[$js_key]['css'])) {
-      foreach ($manifest[$js_key]['css'] as $css_file) {
-        wp_enqueue_style(
-          "page-style-{$slug}",
-          get_theme_file_uri("public/build/{$css_file}"),
-          [],
-          null
-        );
-      }
-    }
   }
 
   // Fallback: langsung cek file CSS mandiri (resources/css/login.css)

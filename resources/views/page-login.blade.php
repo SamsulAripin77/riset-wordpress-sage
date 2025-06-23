@@ -3,6 +3,7 @@
   <!-- FORM BLOCK -->
 <section>
   <form id="form-login" class="max-w-sm mx-auto bg-primary p-6 rounded-xl shadow-md">
+    <h2 class="hero-text text-primary text-center font-bold pt-4 pb-8">SIGN IN</h2>
     <div class="mb-5">
       <label for="email" class="block mb-2 small-text text-primary font-semibold">Your email</label>
       <input 
@@ -10,7 +11,7 @@
         id="email" 
         name="username"
         class="bg-secondary border border-accent text-primary small-text rounded-lg focus:ring-accent focus:border-accent block w-full p-3 transition" 
-        placeholder="name@example.com" 
+        placeholder="email" 
         required 
       />
     </div>

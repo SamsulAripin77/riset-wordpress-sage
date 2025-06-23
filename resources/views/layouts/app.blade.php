@@ -36,16 +36,9 @@
 
     @include('sections.header')
 
-    <main id="main" class="bg-primary mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+    <main id="main" class="bg-primary mx-auto w-full max-w-screen-xl px-4 md:py-12">
       @yield('content')
     </main>
-
-    {{-- @hasSection('sidebar')
-    <aside class="sidebar">
-      @yield('sidebar')
-    </aside>
-    @endif --}}
-
     @include('sections.footer')
   </div>
 

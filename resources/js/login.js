@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .always(function () {
         window.isLoading = false;
+        location.href = '/'
       });
   });
 });
