@@ -2,20 +2,17 @@ import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite';
 import laravel from 'laravel-vite-plugin'
 import { wordpressPlugin, wordpressThemeJson } from '@roots/vite-plugin';
+import fg from 'fast-glob'
 
 export default defineConfig({
   base: '/app/themes/sage/public/build/',
   plugins: [
     tailwindcss(),
     laravel({
-      input: [
-        'resources/css/app.css',
-        'resources/css/login.css',
-        'resources/js/app.js',
-        'resources/js/login.js',
-        'resources/css/editor.css',
-        'resources/js/editor.js',
-      ],
+     input: fg.sync([
+        'resources/css/**/*.css',
+        'resources/js/**/*.js',
+      ]),
       refresh: true,
     }),
 

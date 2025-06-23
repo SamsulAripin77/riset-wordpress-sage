@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "alpinejs": "^3.14.9",
+    "fast-glob": "^3.3.3",
     "flowbite": "^3.1.2",
     "jquery": "^3.7.1",
     "sweetalert2": "^11.22.0"
