@@ -41,10 +41,6 @@
     </main>
     @include('sections.footer')
   </div>
-
-  @php(do_action('get_footer'))
-  @php(wp_footer())
-
   <script>
     // letakkan di app.js
         (function() {
@@ -67,6 +63,8 @@
             window.isLoading = false;
         })();
   </script>
+  @php(do_action('get_footer'))
+  @php(wp_footer())
 </body>
 
 </html>

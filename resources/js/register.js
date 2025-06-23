@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+  alert('selamat datang');
   const form = $('#form-register');
   if (!form.length) return;
 
   form.on('submit', function (e) {
     e.preventDefault();
     validator.clear();
+    window.isLoading = true;
 
     const $form = $(this);
     const data = $form.serialize() + '&action=custom_user_register&security=' + script_vars.ajax_nonce;
@@ -38,6 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     });
+
+    window.isLoading = false;
   });
 
 });
