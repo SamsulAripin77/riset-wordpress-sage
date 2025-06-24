@@ -6,32 +6,39 @@ function handle_custom_user_login()
     // Cek nonce
     $nonce = $_POST['security'] ?? '';
     if (!wp_verify_nonce($nonce, 'ajax_nonce_login')) {
-        wp_send_json_error(['message' => 'Permintaan tidak valid.']);
+        wp_send_json_error(['message' => 'Permintaan tidak valid.'], 400);
     }
 
     // Ambil input dan validasi
-    $username = sanitize_text_field($_POST['username'] ?? '');
+    $email = sanitize_text_field($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
 
-    if (empty($username) || empty($password)) {
-        wp_send_json_error(['message' => 'Username dan password wajib diisi.']);
+    $errors = validate_fields([
+        'email' => ['required', 'email'],
+        'password' => ['required', 'min:6'],
+    ]);
+
+    if (!empty($errors)) {
+        wp_send_json_error([
+            'errors'  => $errors,
+        ], 422);
     }
+
 
     // Proses login
     $user = wp_signon([
-        'user_login'    => $username,
+        'user_login'    => $email,
         'user_password' => $password,
         'remember'      => true,
     ], is_ssl());
 
     if (is_wp_error($user)) {
-        wp_send_json_error(['message' => 'Login gagal: ' . $user->get_error_message()]);
+        wp_send_json_error(['message' => 'Login gagal: ' . wp_strip_all_tags($user->get_error_message()),400]);
     }
 
     // Sukses
     wp_send_json_success([
         'message' => 'Login berhasil',
-        'redirect_url' => home_url(), // Atau arahkan ke halaman dashboard
     ]);
 }
 

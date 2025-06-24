@@ -9,7 +9,7 @@
       <input 
         type="email" 
         id="email" 
-        name="username"
+        name="email"
         class="bg-secondary border border-accent text-primary small-text rounded-lg focus:ring-accent focus:border-accent block w-full p-3 transition" 
         placeholder="email" 
         required 
