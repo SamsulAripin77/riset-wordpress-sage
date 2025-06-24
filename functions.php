@@ -62,51 +62,35 @@ collect(['setup', 'filters'])
 require_once get_stylesheet_directory() . '/app/ajax-hooks.php';
 
 add_action('wp_enqueue_scripts', function () {
-  if (!is_page()) return;
+    $manifest_path = get_theme_file_path('public/build/manifest.json');
 
-  global $post;
-  $slug = $post->post_name;
+    if (!file_exists($manifest_path)) {
+        return;
+    }
 
-  $manifest_path = get_theme_file_path('public/build/manifest.json');
+    $manifest = json_decode(file_get_contents($manifest_path), true);
 
-  if (!file_exists($manifest_path)) return;
+    // Misalnya kita ingin enqueue resources/js/custom-script.js
+    $js_key = 'resources/js/loader.js';
 
-  $manifest = json_decode(file_get_contents($manifest_path), true);
+    if (isset($manifest[$js_key]['file'])) {
+        $js_file = $manifest[$js_key]['file'];
+        $handle  = 'loader-script';
 
-  // JS key
-  $js_key = "resources/js/{$slug}.js";
-  $css_key = "resources/css/{$slug}.css"; // untuk backup pengecekan CSS langsung
-
-  // Enqueue JS
-  if (isset($manifest[$js_key]['file'])) {
-    $js_file = $manifest[$js_key]['file'];
-    $handle  = "page-script-{$slug}";
-
-    wp_enqueue_script(
-      $handle,
-      get_theme_file_uri("public/build/{$js_file}"),
-      [],
-      null,
-      true
-    );
-
-    // === Localize script_vars ===
-    handle_glboal_js_var($handle);
-  }
-
-  // Fallback: langsung cek file CSS mandiri (resources/css/login.css)
-  if (isset($manifest[$css_key]['file'])) {
-    $css_file = $manifest[$css_key]['file'];
-
-    wp_enqueue_style(
-      "page-style-{$slug}-direct",
-      get_theme_file_uri("public/build/{$css_file}"),
-      [],
-      null
-    );
-  }
+        wp_enqueue_script(
+            $handle,
+            get_theme_file_uri("public/build/{$js_file}"),
+            [], // dependencies
+            null,
+            true // in_footer
+        );
+    }
 });
 
+add_action('wp_enqueue_scripts', function () {
+    $handle = 'loader-script';
+    handle_glboal_js_var($handle);
+});
 
 function handle_glboal_js_var($handle){
       global $post;

@@ -35,3 +35,6 @@
 </form>
 
 @endsection
+@push('scripts')
+  @vite(['resources/js/register.js'])
+@endpush

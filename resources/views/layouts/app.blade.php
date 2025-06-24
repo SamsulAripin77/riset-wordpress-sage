@@ -4,9 +4,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;500;700&display=swap"
-    rel="stylesheet">
   @php(do_action('get_header'))
   @php(wp_head())
   @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -41,30 +38,9 @@
     </main>
     @include('sections.footer')
   </div>
-  <script>
-    // letakkan di app.js
-        (function() {
-            let _isLoading = false;
-            Object.defineProperty(window, 'isLoading', {
-                get() { return _isLoading; },
-                set(val) {
-                    _isLoading = !!val;
-                    const loader = document.getElementById('global-loader');
-                    if (loader) {
-                        if (_isLoading) {
-                            loader.classList.remove('hidden');
-                        } else {
-                            loader.classList.add('hidden');
-                        }
-                    }
-                }
-            });
-            // Optional: set default loader state
-            window.isLoading = false;
-        })();
-  </script>
   @php(do_action('get_footer'))
   @php(wp_footer())
+  @stack('scripts')
 </body>
 
 </html>

@@ -44,3 +44,6 @@
   </form>
 </section>
 @endsection
+@push('scripts')
+  @vite(['resources/js/login.js'])
+@endpush

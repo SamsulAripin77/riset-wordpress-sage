@@ -9,10 +9,15 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
     laravel({
-     input: fg.sync([
-        'resources/css/**/*.css',
-        'resources/js/**/*.js',
-      ]),
+     input: [
+        'resources/css/app.css',
+        'resources/js/app.js',
+        'resources/css/editor.css',
+        'resources/js/editor.js',
+        'resources/js/login.js',
+        'resources/js/register.js',
+        'resources/js/loader.js',
+      ],
       refresh: true,
     }),
 
