@@ -1,31 +1,23 @@
-<p align="center">
-  <a href="https://roots.io/sage/"><img alt="Sage" src="https://cdn.roots.io/app/uploads/logo-sage.svg" height="100"></a>
-</p>
+# Membuat Simple Website Dengan Wrodpress
 
-<p align="center">
-  <a href="https://packagist.org/packages/roots/sage"><img alt="Packagist Installs" src="https://img.shields.io/packagist/dt/roots/sage?label=projects%20created&colorB=2b3072&colorA=525ddc&style=flat-square"></a>
-  <a href="https://github.com/roots/sage/actions/workflows/main.yml"><img alt="Build Status" src="https://img.shields.io/github/actions/workflow/status/roots/sage/main.yml?branch=main&logo=github&label=CI&style=flat-square"></a>
-  <a href="https://bsky.app/profile/roots.dev"><img alt="Follow roots.dev on Bluesky" src="https://img.shields.io/badge/follow-@roots.dev-0085ff?logo=bluesky&style=flat-square"></a>
-</p>
+## Part 1
+- mendowload dan menginstall wordpress di lokal : https://wordpress.org/download/
+- menstup database dan mensetup website sampai bisa masuk ke halaman wp admin
+- website harus bisa di akses videw custom domain wordpress.test
+- clone repository ini ke folder /wp-content/themes/
+- actifkan themes melalui wp-admin -> themes
+- membuat project di vs code, menjalankan : composer install, npm install, npm run build, npm run dev
 
-# Sage
+- memulai slicing figma : https://www.figma.com/design/zKUAyU8pD5hRf4lTAKYFJf/Rasa-Nusa?node-id=0-1&p=f&t=29RnnrA4SUSS2Kdc-0
+  - mulai melakukan slicing menggunakan tailwind css
+  - untuk kode navbar simpan di section/header.blade.php
+  - untuk kode footer simpan di section/footer.blade.php
+  - untuk kode main content simpan di front-page.blade.php
+- mengimplementasikan responsive layout di mobile, table dan desktop
+- menerapkan web componen pada element card dan FAQ dengan data yang di dikrim dari front-page dalam bentuk array
+- membuat navbar jadi drawer di mobile
 
-**Advanced hybrid WordPress starter theme with Laravel Blade and Tailwind CSS**
+### optional : 
+- menambahkan efek animasi pada hover card, hover menu
 
-- 🔧 Clean, efficient theme templating with Laravel Blade
-- ⚡️ Modern front-end development workflow powered by Vite
-- 🎨 Out of the box support for Tailwind CSS
-- 🚀 Harness the power of Laravel with [Acorn integration](https://github.com/roots/acorn)
-- 📦 Block editor support built-in
-
-Sage brings proper PHP templating and modern JavaScript tooling to WordPress themes. Write organized, component-based code using Laravel Blade, enjoy instant builds and CSS hot-reloading with Vite, and leverage Laravel's robust feature set through Acorn.
-
-[Read the docs to get started](https://roots.io/sage/docs/installation/)
-
-## Sponsors
-
-Sage is an open source project and completely free to use. If you've benefited from our projects and would like to support our future endeavors, [please consider sponsoring us](https://github.com/sponsors/roots).
-
-<div align="center">
-<a href="https://carrot.com/"><img src="https://cdn.roots.io/app/uploads/carrot.svg" alt="Carrot" width="120" height="90"></a> <a href="https://wordpress.com/"><img src="https://cdn.roots.io/app/uploads/wordpress.svg" alt="WordPress.com" width="120" height="90"></a> <a href="https://worksitesafety.ca/careers/"><img src="https://cdn.roots.io/app/uploads/worksite-safety.svg" alt="Worksite Safety" width="120" height="90"></a> <a href="https://40q.agency/"><img src="https://cdn.roots.io/app/uploads/40q.svg" alt="40Q" width="120" height="90"></a> <a href="https://www.itineris.co.uk/"><img src="https://cdn.roots.io/app/uploads/itineris.svg" alt="Itineris" width="120" height="90"></a> <a href="https://bonsai.so/"><img src="https://cdn.roots.io/app/uploads/bonsai.svg" alt="Bonsai" width="120" height="90"></a>
-</div>
+# Part 2
