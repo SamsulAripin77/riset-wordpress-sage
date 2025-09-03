@@ -24,3 +24,51 @@
   font-weight: 700;
   src: url('../fonts/crimson-text-v19-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
+
+@font-face {
+  font-display: swap;
+  font-family: 'Aspec Range';
+  font-style: normal;
+  /* font-weight: 700; */
+  src: url('../fonts/aspect-range-demo.regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Cabinet Grostesk';
+  font-style: normal;
+  /* font-weight: 700; */
+  src: url('../fonts/CabinetGrotesk-Variable.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Plus Jakarta Medium';
+  font-style: normal;
+  /* font-weight: 700; */
+  src: url('../fonts/PlusJakartaSans-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Plus Jakarta Reguler';
+  font-style: normal;
+  /* font-weight: 700; */
+  src: url('../fonts/PlusJakartaSans-Regular.woff2') format('woff2');
+}
+
+.font-aspec {
+  font-family: 'Aspec Range';
+}
+
+.font-cabinet {
+  font-family: 'Cabinet Grostesk';
+}
+
+.font-jakartaM{
+  font-family: 'Plus Jakarta Medium';
+}
+
+.font-jakartaR{
+  font-family: 'Plus Jakarta Reguler';
+}
