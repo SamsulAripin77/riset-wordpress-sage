@@ -462,7 +462,8 @@
 <main class="pt-24">
     <!-- Hero Section -->
     <section id="hero" class="relative overflow-hidden">
-        <div class="absolute inset-0 bg-cover bg-center bg-gray-400" style="background-image: url('https://placehold.co/1920x1080/333333/CFAF70?text=Ambara+Advocate');"></div>
+        
+        <div class="absolute inset-0 bg-cover bg-center bg-gray-400" style="background-image: @asset('images/ambara.png')"></div>
         <div class="relative z-10 bg-black bg-opacity-50 flex flex-col items-start justify-center text-white min-h-screen px-6 py-24 md:px-16">
             <h4 class="caption-text mb-4 text-[#CFAF70] tracking-widest text-lg">Kepercayaan dan Integritas</h4>
             <h1 class="text-5xl md:text-8xl font-extrabold leading-tight">Membentuk Masa Depan Hukum Indonesia.</h1>
