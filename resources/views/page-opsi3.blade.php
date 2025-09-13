@@ -76,7 +76,7 @@
             border-top: none;
             border-left: none;
             border-right: none;
-            border-bottom: 2px solid #1D2D50;
+            border-bottom: 1px solid #1D2D50;
             background: transparent;
             padding: 0 4px;
         }
@@ -88,6 +88,26 @@
             border-bottom: 1px solid #E5E7EB;
             padding-bottom: 4px;
         }
+
+        /* --- Header Scroll Effect --- */
+        #main-header {
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;;
+        }
+        #main-header.scrolled {
+            background-color: white;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        
+        /* Text and links color transition */
+        #main-header .nav-link {
+            color: white;
+            transition: color 0.3s ease-in-out;
+        }
+        #main-header.scrolled .nav-link {
+            color: #1D2D50;
+        }
+
     </style>
     <style>
         * {
@@ -134,6 +154,7 @@
             background-image: linear-gradient(90deg, #CFAF70 66%, transparent 0);
             padding: 50px 0;
             display: flex;
+            justify-content: space-between;
             flex: 1 1 100%;
             flex-flow: row nowrap;
             transition: height 0.2s ease-out;
@@ -445,28 +466,31 @@
 <body class="bg-[#F5F5F5]">
 
 <!-- Header -->
-<header class="bg-white p-6 md:p-8 shadow-md fixed w-full z-50">
+<header id="main-header" class="p-6 md:p-8 fixed w-full z-50">
     <div class="container mx-auto flex justify-between items-center">
-        <a href="#" class="text-2xl font-bold text-[#1D2D50]">AMBARA ADVOCATE</a>
+        <a href="#" class="brand-logo text-2xl font-bold text-white">
+             <img class="max-w-32" src="{{asset('resources/images/ambara-logo.png')}}" alt="Logo" srcset="">
+        </a>
         <nav class="hidden md:flex space-x-12 text-sm">
-            <a href="#about" class="hover:text-[#CFAF70] transition-colors">Tentang Kami</a>
-            <a href="#services" class="hover:text-[#CFAF70] transition-colors">Layanan</a>
-            <a href="#team" class="hover:text-[#CFAF70] transition-colors">Tim</a>
-            <a href="#articles" class="hover:text-[#CFAF70] transition-colors">Artikel</a>
-            <a href="#contact" class="hover:text-[#CFAF70] transition-colors">Kontak</a>
+            <a href="#about" class="nav-link hover:text-[#CFAF70] transition-colors">Tentang Kami</a>
+            <a href="#services" class="nav-link hover:text-[#CFAF70] transition-colors">Layanan</a>
+            <a href="#team" class="nav-link hover:text-[#CFAF70] transition-colors">Tim</a>
+            <a href="#articles" class="nav-link hover:text-[#CFAF70] transition-colors">Artikel</a>
+            <a href="#contact" class="nav-link hover:text-[#CFAF70] transition-colors">Kontak</a>
         </nav>
         <a href="#contact" class="bg-[#CFAF70] text-[#1D2D50] py-3 px-8 rounded-full hidden md:block hover:bg-[#E6C37D] transition-colors font-semibold">Hubungi Kami</a>
     </div>
 </header>
 
-<main class="pt-24">
+<main>
     <!-- Hero Section -->
-    <section id="hero" class="relative overflow-hidden">
-        
-        <div class="absolute inset-0 bg-cover bg-center bg-gray-400" style="background-image: @asset('images/ambara.png')"></div>
-        <div class="relative z-10 bg-black bg-opacity-50 flex flex-col items-start justify-center text-white min-h-screen px-6 py-24 md:px-16">
-            <h4 class="caption-text mb-4 text-[#CFAF70] tracking-widest text-lg">Kepercayaan dan Integritas</h4>
-            <h1 class="text-5xl md:text-8xl font-extrabold leading-tight">Membentuk Masa Depan Hukum Indonesia.</h1>
+    <section id="hero" class="relative h-screen">
+        <div class="absolute inset-0">
+            <img src="{{asset('resources/images/court3.jpg')}}" alt="Ambara Advocate" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        </div>
+        <div class="relative z-10 h-full flex flex-col items-start justify-center text-white px-6 md:px-16">
+            <h1 class="text-3xl lg:text-5xl font-extrabold leading-tight md:max-w-4xl xl:max-w-5xl mt-8">Kami hadir untuk menyederhanakan masalah hukum Anda dengan pendekatan yang cermat dan profesional</h1>
             <p class="mt-6 md:text-xl max-w-2xl">Ambara Advocate adalah firma hukum yang berdedikasi untuk memberikan layanan hukum komprehensif, didukung oleh tim ahli yang berkomitmen pada integritas dan keunggulan.</p>
             <a href="#services" class="mt-10 inline-block bg-[#CFAF70] text-[#1D2D50] py-4 px-10 rounded-full text-lg hover:bg-[#E6C37D] transition-colors font-semibold">Jelajahi Layanan Kami</a>
         </div>
@@ -479,12 +503,12 @@
                 <!-- Kolom Kiri: Teks -->
                 <div>
                     <h4 class="caption-text mb-2">Penghargaan</h4>
-                    <h2 class="headline-text font-bold mb-6">Pengakuan dari Industri.</h2>
+                    <h2 class="headline-text font-bold mb-6">Pengakuan dari Industri</h2>
                     <p class="text-lg text-gray-700 leading-relaxed">Kami diakui secara nasional dan internasional atas komitmen kami pada keunggulan dan integritas dalam praktik hukum. Setiap penghargaan adalah bukti dedikasi kami untuk memberikan hasil terbaik bagi klien.</p>
                 </div>
                 <!-- Kolom Kanan: Grid Gambar -->
                 <div>
-                    <div class="flex items-center space-x-4 mb-8">
+                    <div class="flex items-center justify-end space-x-4 mb-8">
                         <span class="text-sm font-semibold text-gray-600">Filter Tahun:</span>
                         <select id="year-filter" class="text-sm underline-input focus:ring-0">
                             <option value="all">Semua</option>
@@ -505,42 +529,50 @@
     <section id="afiliasi" class="bg-white py-20 md:py-32">
         <div class="container mx-auto px-6 md:px-12">
             <!-- Section 1: Title dengan Background -->
-            <div class="relative mb-16">
-                <div class="absolute inset-0 bg-cover bg-center rounded-xl" style="background-image: url('https://placehold.co/1920x800/CFAF70/1D2D50?text=Affiliate+Background');"></div>
-                <div class="relative z-10 bg-black bg-opacity-40 p-12 rounded-xl">
+            <div class="relative mb-8">
+                <div class="relative z-10 bg-opacity-60 rounded-xl">
                     <div class="w-1/2">
-                        <h4 class="caption-text mb-2 text-white">Afiliasi</h4>
-                        <h2 class="headline-text font-bold text-white mb-4">Jejak Langkah Global Kami.</h2>
-                        <p class="text-lg leading-relaxed text-white">Kami bangga menjadi bagian dari jaringan global dan diakui oleh berbagai lembaga terkemuka, menunjukkan komitmen kami pada standar tertinggi.</p>
+                        <h4 class="caption-text mb-2 ">Afiliasi</h4>
+                        <h2 class="headline-text font-bold headline-text mb-4">Jejak Langkah Global Kami.</h2>
+                        <p class="text-lg leading-relaxed headline-text ">Kami bangga menjadi bagian dari jaringan global dan diakui oleh berbagai lembaga terkemuka, menunjukkan komitmen kami pada standar tertinggi.</p>
                     </div>
                 </div>
             </div>
             
             <!-- Section 2: Grid Afiliasi -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div class="text-center">
-                    <div class="w-full aspect-square bg-gray-200 rounded-lg flex items-center justify-center mb-3">
-                        <span class="text-gray-500">Logo 1</span>
-                    </div>
-                    <p class="text-sm font-semibold">Asosiasi Advokat Indonesia</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-full aspect-square bg-gray-200 rounded-lg flex items-center justify-center mb-3">
-                        <span class="text-gray-500">Logo 2</span>
-                    </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-y-12 lg:gap-x-40">
+                <div class="text-center ks-border">
+                    <img class="w-full aspect-square object-contain max-h-[100px] rounded-lg flex items-center justify-center mb-3 text-center" src="@asset('resources/images/aff2.jpg')" alt="" srcset="">
                     <p class="text-sm font-semibold">International Bar Association</p>
                 </div>
-                <div class="text-center">
-                    <div class="w-full aspect-square bg-gray-200 rounded-lg flex items-center justify-center mb-3">
-                        <span class="text-gray-500">Logo 3</span>
-                    </div>
+                <div class="text-center ks-border">
+                    <img class="w-full aspect-square object-contain max-h-[100px] rounded-lg flex items-center justify-center mb-3 text-center" src="@asset('resources/images/aff3.jpg')" alt="" srcset="">
                     <p class="text-sm font-semibold">Asian Legal Business</p>
                 </div>
-                <div class="text-center">
-                    <div class="w-full aspect-square bg-gray-200 rounded-lg flex items-center justify-center mb-3">
-                        <span class="text-gray-500">Logo 4</span>
-                    </div>
+                <div class="text-center ks-border">
+                    <img class="w-full aspect-square object-contain max-h-[100px] rounded-lg flex items-center justify-center mb-3 text-center" src="@asset('resources/images/aff4.jpg')" alt="" srcset="">
                     <p class="text-sm font-semibold">ASEAN Law Association</p>
+                </div>
+                <div class="text-center ks-border">
+                    <img class="w-full aspect-square object-contain max-h-[100px] rounded-lg flex items-center justify-center mb-3 text-center" src="@asset('resources/images/aff5.jpg')" alt="" srcset="">
+                    <p class="text-sm font-semibold">Asosiasi Advokat Indonesia</p>
+                </div>
+                
+                 <div class="text-center ks-border">
+                    <img class="w-full aspect-square object-contain max-h-[100px] rounded-lg flex items-center justify-center mb-3 text-center" src="@asset('resources/images/brand1.png')" alt="" srcset="">
+                    <p class="text-sm font-semibold">International Bar Association</p>
+                </div>
+                <div class="text-center ks-border">
+                    <img class="w-full aspect-square object-contain max-h-[100px] rounded-lg flex items-center justify-center mb-3 text-center" src="@asset('resources/images/brand2.png')" alt="" srcset="">
+                    <p class="text-sm font-semibold">Asian Legal Business</p>
+                </div>
+                <div class="text-center ks-border">
+                    <img class="w-full aspect-square object-contain max-h-[100px] rounded-lg flex items-center justify-center mb-3 text-center" src="@asset('resources/images/brand3.png')" alt="" srcset="">
+                    <p class="text-sm font-semibold">ASEAN Law Association</p>
+                </div>
+                <div class="text-center ks-border">
+                    <img class="w-full aspect-square object-contain max-h-[100px] rounded-lg flex items-center justify-center mb-3 text-center" src="@asset('resources/images/brand4.png')" alt="" srcset="">
+                    <p class="text-sm font-semibold">Asosiasi Advokat Indonesia</p>
                 </div>
             </div>
         </div>
@@ -665,7 +697,7 @@
     <section id="founder" class="bg-white py-20 md:py-32">
         <div class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center gap-12">
             <div class="md:w-1/2">
-                <img src="https://placehold.co/600x800/333333/CFAF70?text=Foto+Founder" alt="Foto Founder" class="w-full h-auto rounded-xl shadow-lg">
+                <img src="{{asset('resources/images/ceo2.jpg')}}" alt="Foto Founder" class="w-full h-auto rounded-xl shadow-lg">
             </div>
             <div class="md:w-1/2">
                 <h4 class="caption-text mb-2">Biografi</h4>
@@ -679,11 +711,11 @@
     <section id="articles" class="bg-[#F5F5F5] py-20 md:py-32">
         <div class="container mx-auto px-6 md:px-12">
             <h4 class="caption-text mb-2">Artikel</h4>
-            <h2 class="headline-text font-bold mb-12">Wawasan Hukum Terkini.</h2>
+            <h2 class="headline-text font-bold mb-12">Wawasan Hukum Terkini</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Artikel 1 -->
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <img src="https://placehold.co/600x400/1D2D50/CFAF70?text=Hukum+Korporasi" alt="Artikel 1" class="w-full h-48 object-cover">
+                    <img src="{{asset('resources/images/blog1.jpg')}}" alt="Artikel 1" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <span class="text-sm text-gray-500">22 Juni 2024</span>
                         <h3 class="font-semibold text-xl mt-2 mb-2">Pentingnya Legal Due Diligence dalam M&A.</h3>
@@ -693,7 +725,7 @@
                 </div>
                 <!-- Artikel 2 -->
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <img src="https://placehold.co/600x400/1D2D50/CFAF70?text=Hukum+Litigasi" alt="Artikel 2" class="w-full h-48 object-cover">
+                    <img src="{{asset('resources/images/blog2.jpg')}}" alt="Artikel 1" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <span class="text-sm text-gray-500">15 Mei 2024</span>
                         <h3 class="font-semibold text-xl mt-2 mb-2">Strategi Efektif dalam Penyelesaian Sengketa.</h3>
@@ -703,7 +735,7 @@
                 </div>
                 <!-- Artikel 3 -->
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <img src="https://placehold.co/600x400/1D2D50/CFAF70?text=Hukum+IP" alt="Artikel 3" class="w-full h-48 object-cover">
+                   <img src="{{asset('resources/images/blog3.jpg')}}" alt="Artikel 1" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <span class="text-sm text-gray-500">01 April 2024</span>
                         <h3 class="font-semibold text-xl mt-2 mb-2">Perlindungan Merek Dagang di Era Digital.</h3>
@@ -717,11 +749,12 @@
 
     <!-- Section Subscribe -->
     <section id="subscribe" class="relative py-20 md:py-32">
-        <div class="absolute inset-0 bg-cover bg-center bg-gray-800" style="background-image: url('https://placehold.co/1920x1080/1D2D50/CFAF70?text=Background+Image');"></div>
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url(@asset('resources/images/court2.jpg'));"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-60"></div>
         <div class="relative z-10 container mx-auto px-6 md:px-12 flex flex-col items-center justify-center text-center text-white">
             <h4 class="caption-text mb-2 text-white">Subscribe</h4>
-            <h2 class="headline-text font-bold mb-4">Dapatkan Informasi dan Wawasan Terbaru.</h2>
-            <p class="text-lg max-w-2xl mb-8">Berlangganan newsletter kami untuk mendapatkan analisis hukum terkini, wawasan dari para ahli, dan undangan acara eksklusif.</p>
+            <h2 class="headline-text font-bold mb-4 text-white">Dapatkan Informasi dan Wawasan Terbaru</h2>
+            <p class="text-lg max-w-2xl mb-8 text-gray-200">Berlangganan newsletter kami untuk mendapatkan analisis hukum terkini, wawasan dari para ahli, dan undangan acara eksklusif.</p>
             <form class="flex flex-col md:flex-row items-center w-full max-w-xl gap-4">
                 <input type="email" placeholder="Masukkan Email Anda" class="w-full md:flex-1 p-4 rounded-lg bg-white bg-opacity-90 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#E6C37D]">
                 <button type="submit" class="w-full md:w-auto bg-[#CFAF70] text-[#1D2D50] py-4 px-8 rounded-lg font-semibold hover:bg-[#E6C37D] transition-colors">Berlangganan</button>
@@ -796,12 +829,22 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
+        // Navbar scroll effect
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
         // Awards data
         const awardsData = [
-            { year: 2024, name: 'Law Firm of the Year', logo: 'https://placehold.co/100x100/3A77F5/FFFFFF?text=Logo+A' },
-            { year: 2024, name: 'Legal Excellence Award', logo: 'https://placehold.co/100x100/1D2D50/CFAF70?text=Logo+B' },
-            { year: 2023, name: 'Top Tier Law Firm', logo: 'https://placehold.co/100x100/CFAF70/1D2D50?text=Logo+C' },
-            { year: 2024, name: 'Best Corporate Law Firm', logo: 'https://placehold.co/100x100/E6C37D/FFFFFF?text=Logo+D' }
+            { year: 2024, name: 'Law Firm of the Year', logo: '{{ asset('resources/images/brand1.png') }}' },
+            { year: 2024, name: 'Legal Excellence Award', logo: '{{ asset('resources/images/brand2.png') }}' },
+            { year: 2023, name: 'Top Tier Law Firm', logo: '{{ asset('resources/images/brand3.png') }}' },
+            { year: 2024, name: 'Best Corporate Law Firm', logo: '{{ asset('resources/images/brand4.png') }}' },
         ];
 
         const yearFilter = document.getElementById('year-filter');
@@ -818,10 +861,10 @@
                     const awardItem = document.createElement('div');
                     awardItem.className = 'award-item bg-white p-4 rounded-lg shadow-sm text-center';
                     awardItem.innerHTML = `
-                        <div class="w-20 h-20 mx-auto bg-gray-200 rounded-lg flex items-center justify-center p-2 mb-3">
+                        <div class="max-w-32 max-h-32 h-full w-full mx-auto rounded-lg flex items-center justify-center p-2 mb-3">
                             <img src="${award.logo}" alt="${award.name}" class="w-full h-full object-contain">
                         </div>
-                        <p class="text-xs font-semibold soft-underline">${award.name}</p>
+                        <p class="text-xs font-semibold">${award.name}</p>
                     `;
                     awardsGrid.appendChild(awardItem);
                 });
