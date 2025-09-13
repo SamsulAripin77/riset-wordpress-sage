@@ -490,7 +490,7 @@
             <div class="absolute inset-0 bg-black bg-opacity-50"></div>
         </div>
         <div class="relative z-10 h-full flex flex-col items-start justify-center text-white px-6 md:px-16">
-            <h1 class="text-3xl lg:text-5xl font-extrabold leading-tight md:max-w-4xl xl:max-w-5xl mt-8">Kami hadir untuk menyederhanakan masalah hukum Anda dengan pendekatan yang cermat dan profesional</h1>
+            <h1 class="text-3xl lg:text-5xl xl:text-6xl font-extrabold leading-tight md:max-w-4xl xl:max-w-5xl mt-8">Kami hadir untuk menyederhanakan masalah hukum Anda dengan pendekatan yang cermat dan profesional</h1>
             <p class="mt-6 md:text-xl max-w-2xl">Ambara Advocate adalah firma hukum yang berdedikasi untuk memberikan layanan hukum komprehensif, didukung oleh tim ahli yang berkomitmen pada integritas dan keunggulan.</p>
             <a href="#services" class="mt-10 inline-block bg-[#CFAF70] text-[#1D2D50] py-4 px-10 rounded-full text-lg hover:bg-[#E6C37D] transition-colors font-semibold">Jelajahi Layanan Kami</a>
         </div>
@@ -582,7 +582,7 @@
 <section id="history" class="py-20 md:py-32 bg-[#F5F5F5]">
     <div class="container mx-auto px-6 md:px-12 mb-16 text-center">
         <h4 class="caption-text mb-4 font-semibold">Timeline</h4>
-        <h2 class="timeline-title headline-text font-bold mb-4">Kisah Perjalanan Kami.</h2>
+        <h2 class="timeline-title headline-text font-bold mb-4">Kisah Perjalanan Kami</h2>
         <p class="text-gray-600 max-w-2xl mx-auto mb-4">Dari awal berdirinya hingga pencapaian terkini, berikut adalah tonggak-tonggak penting dalam perjalanan Ambara Advocate.</p>
         <p class="text-sm text-gray-500">(Klik pada item timeline untuk melihat detail)</p>
     </div>
@@ -701,7 +701,7 @@
             </div>
             <div class="md:w-1/2">
                 <h4 class="caption-text mb-2">Biografi</h4>
-                <h2 class="headline-text font-bold mb-4">Mengenal Lebih Dekat Pendiri Kami.</h2>
+                <h2 class="headline-text font-bold mb-4">Mengenal Lebih Dekat Pendiri Kami</h2>
                 <p class="mt-6 text-gray-700 leading-relaxed text-lg">Nama Founder adalah seorang praktisi hukum senior dengan pengalaman lebih dari 20 tahun di bidang hukum korporat dan litigasi. Beliau mendirikan Ambara Advocate dengan keyakinan bahwa layanan hukum haruslah transparan, etis, dan berorientasi pada hasil nyata bagi klien. Komitmen beliau terhadap keunggulan telah mengantarkan firma ini menjadi salah satu yang paling dihormati di industri.</p>
             </div>
         </div>
@@ -766,10 +766,10 @@
 
 <!-- Footer - FIXED -->
 <footer class="bg-[#333333] text-white py-12">
-    <div class="container mx-auto px-6 md:px-12">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="container mx-auto">
+        <div class="flex flex-col md:flex-row justify-between">
             <!-- Profile -->
-            <div>
+            <div class="w-full lg:w-1/3">
                 <h3 class="text-2xl font-bold mb-4 text-[#CFAF70]">AMBARA ADVOCATE</h3>
                 <p class="text-sm mb-6">Firma hukum yang berkomitmen pada keunggulan, integritas, dan inovasi untuk memberikan solusi hukum terbaik.</p>
                 <div class="flex space-x-4">
@@ -792,7 +792,7 @@
             </div>
 
             <!-- Contact -->
-            <div>
+            <div class="w-full lg:w-1/3">
                 <h4 class="font-semibold text-lg mb-4">Kontak</h4>
                 <div class="space-y-2 text-sm">
                     <p>Jl. Sudirman No. 123</p>
@@ -803,7 +803,7 @@
             </div>
 
             <!-- Menu -->
-            <div>
+            <div class="w-full lg:w-1/3">
                 <h4 class="font-semibold text-lg mb-4">Menu</h4>
                 <div class="grid grid-cols-2 gap-2 text-sm">
                     <a href="#about" class="hover:text-[#CFAF70] transition-colors">Tentang Kami</a>
