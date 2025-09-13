@@ -489,7 +489,7 @@
             <img src="{{asset('resources/images/court3.jpg')}}" alt="Ambara Advocate" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black bg-opacity-50"></div>
         </div>
-        <div class="relative z-10 h-full flex flex-col items-start justify-center text-white px-6 md:px-16">
+        <div class="relative z-10 h-full flex flex-col items-center md:items-start justify-center text-center md:text-left text-white px-6 md:px-16">
             <h1 class="text-3xl lg:text-5xl xl:text-6xl font-extrabold leading-tight md:max-w-4xl xl:max-w-5xl mt-8">Kami hadir untuk menyederhanakan masalah hukum Anda dengan pendekatan yang cermat dan profesional</h1>
             <p class="mt-6 md:text-xl max-w-2xl">Ambara Advocate adalah firma hukum yang berdedikasi untuk memberikan layanan hukum komprehensif, didukung oleh tim ahli yang berkomitmen pada integritas dan keunggulan.</p>
             <a href="#services" class="mt-10 inline-block bg-[#CFAF70] text-[#1D2D50] py-4 px-10 rounded-full text-lg hover:bg-[#E6C37D] transition-colors font-semibold">Jelajahi Layanan Kami</a>
@@ -531,7 +531,7 @@
             <!-- Section 1: Title dengan Background -->
             <div class="relative mb-8">
                 <div class="relative z-10 bg-opacity-60 rounded-xl">
-                    <div class="w-1/2">
+                    <div class="w-full lg:w-1/2">
                         <h4 class="caption-text mb-2 ">Afiliasi</h4>
                         <h2 class="headline-text font-bold headline-text mb-4">Jejak Langkah Global Kami.</h2>
                         <p class="text-lg leading-relaxed headline-text ">Kami bangga menjadi bagian dari jaringan global dan diakui oleh berbagai lembaga terkemuka, menunjukkan komitmen kami pada standar tertinggi.</p>
@@ -540,30 +540,30 @@
             </div>
             
             <!-- Section 2: Grid Afiliasi -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-y-12 lg:gap-x-40">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-12 lg:gap-x-40">
                 <div class="text-center ks-border">
-                    <img class="w-full aspect-square object-contain max-h-[100px] rounded-lg flex items-center justify-center mb-3 text-center" src="@asset('resources/images/aff2.jpg')" alt="" srcset="">
+                    <img class="w-full aspect-square object-contain max-h-[300px] lg:max-h-[100px] rounded-lg flex items-center justify-center mb-3 text-center" src="@asset('resources/images/aff2.jpg')" alt="" srcset="">
                     <p class="text-sm font-semibold">International Bar Association</p>
                 </div>
                 <div class="text-center ks-border">
-                    <img class="w-full aspect-square object-contain max-h-[100px] rounded-lg flex items-center justify-center mb-3 text-center" src="@asset('resources/images/aff3.jpg')" alt="" srcset="">
+                    <img class="w-full aspect-square object-contain max-h-[300px] lg:max-h-[100px] rounded-lg flex items-center justify-center mb-3 text-center" src="@asset('resources/images/aff3.jpg')" alt="" srcset="">
                     <p class="text-sm font-semibold">Asian Legal Business</p>
                 </div>
                 <div class="text-center ks-border">
-                    <img class="w-full aspect-square object-contain max-h-[100px] rounded-lg flex items-center justify-center mb-3 text-center" src="@asset('resources/images/aff4.jpg')" alt="" srcset="">
+                    <img class="w-full aspect-square object-contain max-h-[300px] lg:max-h-[100px] rounded-lg flex items-center justify-center mb-3 text-center" src="@asset('resources/images/aff4.jpg')" alt="" srcset="">
                     <p class="text-sm font-semibold">ASEAN Law Association</p>
                 </div>
                 <div class="text-center ks-border">
-                    <img class="w-full aspect-square object-contain max-h-[100px] rounded-lg flex items-center justify-center mb-3 text-center" src="@asset('resources/images/aff5.jpg')" alt="" srcset="">
+                    <img class="w-full aspect-square object-contain max-h-[300px] lg:max-h-[100px] rounded-lg flex items-center justify-center mb-3 text-center" src="@asset('resources/images/aff5.jpg')" alt="" srcset="">
                     <p class="text-sm font-semibold">Asosiasi Advokat Indonesia</p>
                 </div>
                 
                  <div class="text-center ks-border">
-                    <img class="w-full aspect-square object-contain max-h-[100px] rounded-lg flex items-center justify-center mb-3 text-center" src="@asset('resources/images/brand1.png')" alt="" srcset="">
+                    <img class="w-full aspect-square object-contain max-h-[300px] lg:max-h-[100px] rounded-lg flex items-center justify-center mb-3 text-center" src="@asset('resources/images/brand1.png')" alt="" srcset="">
                     <p class="text-sm font-semibold">International Bar Association</p>
                 </div>
                 <div class="text-center ks-border">
-                    <img class="w-full aspect-square object-contain max-h-[100px] rounded-lg flex items-center justify-center mb-3 text-center" src="@asset('resources/images/brand2.png')" alt="" srcset="">
+                    <img class="w-full aspect-square object-contain max-h-[300px] lg:max-h-[100px] rounded-lg flex items-center justify-center mb-3 text-center" src="@asset('resources/images/brand2.png')" alt="" srcset="">
                     <p class="text-sm font-semibold">Asian Legal Business</p>
                 </div>
                 <div class="text-center ks-border">
@@ -766,8 +766,8 @@
 
 <!-- Footer - FIXED -->
 <footer class="bg-[#333333] text-white py-12">
-    <div class="container mx-auto">
-        <div class="flex flex-col md:flex-row justify-between">
+    <div class="container mx-auto px-6 md:px-12">
+        <div class="flex flex-col md:flex-row gap-y-4 justify-between">
             <!-- Profile -->
             <div class="w-full lg:w-1/3">
                 <h3 class="text-2xl font-bold mb-4 text-[#CFAF70]">AMBARA ADVOCATE</h3>
