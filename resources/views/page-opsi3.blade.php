@@ -909,71 +909,74 @@ $(document).ready(function() {
     var item = '.timeline-item';
     var content = '.p-timeline-content';
     var active = 'i-is-active';
+
+     // Show the first timeline item by default without scrolling
+    var firstItem = $('.timeline-item:first');
+    if (firstItem.length) {
+        showTimelineContent(firstItem[0], false); // `false` prevents scrolling on page load
+    }
     
     // Event handlers
     $('.timeline-item').on('click', function(){ 
-        showTimelineContent(this); 
+        showTimelineContent(this, true);
     });
     
     $('.close').on('click', function(){ 
         closeCurrentContent(this); 
     });
     
-    function showTimelineContent(element) {
-        var itemId = $(element).find('.p-timeline-carmodel').attr('data-car');
-        
-        // Prevent having multiple items with the class i-is-active
-        if($(item).hasClass(active)) { 
-            $(item).removeClass(active); 
-            $(content).removeClass(active);
+     function showTimelineContent(element, withScroll) {
+        var $element = $(element);
+        var itemId = $element.find('.p-timeline-carmodel').attr('data-car');
+        var $currentContent = $(content + '[data-car="' + itemId + '"]');
+
+        // If the clicked item is already active, do nothing.
+        if ($element.hasClass(active)) {
+            return;
+        }
+
+        // Deactivate any other active items
+        $(item + '.' + active).removeClass(active);
+        $(content + '.' + active).removeClass(active);
+
+        // Activate the new item
+        $element.addClass(active);
+        $currentContent.addClass(active);
+
+        // Scroll to shown content if requested
+        if (withScroll && $currentContent.length) {
+            setTimeout(function() {
+                $('html, body').stop().animate({ 
+                    scrollTop: $currentContent.offset().top - 100 
+                }, 800);
+            }, 100);
         }
         
-        // Grab the id from the data attribute of each contentblock
-        $(content).each(function() {
-            var contentid = $(this).attr('data-car');
-            
-            // Check if timeline item id is equal to the content id
-            if(itemId == contentid) {
-                var current = $(content + '[data-car="' + contentid + '"]');
-                $(current).addClass(active);
-                $(element).addClass(active);
-                
-                // If the content is not the selected (current) one
-                $(content).not(current).removeClass(active);
-                
-                // Scroll to shown content
-                setTimeout(function() {
-                    var target = $(current);
-                    if(target.length) {
-                        $('html, body').stop().animate({ 
-                            scrollTop: target.offset().top - 100 
-                        }, 800);
-                    }
-                }, 100);
-            }
-        });
     }
     
-    function closeCurrentContent(event) {
-        var contentblock = $(event).closest(content);
-        var contentid = $(contentblock).attr('data-car');
+function closeCurrentContent(closeButton) {
+        var $contentblock = $(closeButton).closest(content);
+        var contentid = $contentblock.attr('data-car');
         
-        $(item).each(function() {
-            var itemId = $(this).find('.p-timeline-carmodel').attr('data-car');
-            
-            if(itemId == contentid) {
-                // Move page back to timeline
-                var target = $('.timeline-title');
-                $('html, body').stop().animate({ 
-                    scrollTop: target.offset().top - 50 
-                }, 800);
-                
-                // Remove class i-is-active from highlighted item 
-                $(this).removeClass(active);
-                contentblock.removeClass(active);
-            }
+        var $itemToClose = $(item).filter(function() {
+            return $(this).find('.p-timeline-carmodel').attr('data-car') === contentid;
         });
+
+        if ($itemToClose.length) {
+            // Move page back to timeline title
+            var target = $('.timeline-title');
+            if (target.length) {
+                setTimeout(function() {
+                $('html, body').stop().animate({ scrollTop: target.offset().top - 50 }, 800);
+                }, 100); // Delay to prevent animation clash
+            }
+            
+            // Remove active classes
+            $itemToClose.removeClass(active);
+            $contentblock.removeClass(active);
+        }
     }
+    
     
     // Clear all content after animation
     $('.close').on('click', function() {
