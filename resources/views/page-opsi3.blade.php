@@ -286,7 +286,7 @@
         .timeline-content-card {
             width: 48%;
             float: left;
-            padding-right: 20px;
+            padding-right: 32px;
         }
 
         .timeline-content-image {
@@ -637,10 +637,10 @@
                         <p>Ambara Advocate resmi didirikan pada tahun 2010 dengan visi untuk menjadi firma hukum terdepan di Indonesia. Kami memulai perjalanan dengan komitmen memberikan layanan hukum berkualitas tinggi dan solusi inovatif untuk berbagai kebutuhan klien.</p>
                         <p>Dengan tim awal yang terdiri dari advokat berpengalaman, kami fokus pada bidang hukum perdata, pidana, dan korporat. Dedikasi terhadap keunggulan dan integritas menjadi fondasi utama dalam setiap layanan yang kami berikan.</p>
                         <a class="btn" href="javascript:void(0);" title="Pelajari lebih lanjut">Pelajari Lebih Lanjut</a>
-                        <div class="close" data-type-close></div>
+                        <div class="hidden close" data-type-close></div>
                     </div>
                     <div class="timeline-content-image">
-                        <img src="https://via.placeholder.com/500x300/1D2D50/CFAF70?text=Pendirian+2010" alt="Pendirian Ambara Advocate 2010"/>
+                        <img src="{{asset('resources/images/time1.jpg')}}" alt="Pendirian Ambara Advocate 2010"/>
                     </div>
                 </div>
                 
@@ -652,10 +652,10 @@
                         <p>Pada tahun 2015, Ambara Advocate mengalami perkembangan signifikan dengan memperluas cakupan layanan. Kami menambahkan divisi Hukum Korporat dan Kekayaan Intelektual untuk memenuhi kebutuhan klien yang semakin beragam.</p>
                         <p>Ekspansi ini mencakup penambahan expertise dalam merger & akuisisi, kontrak komersial, compliance, serta perlindungan hak cipta dan merek dagang. Tim kami diperkuat dengan spesialis di bidang-bidang baru tersebut.</p>
                         <a class="btn" href="javascript:void(0);" title="Pelajari lebih lanjut">Pelajari Lebih Lanjut</a>
-                        <div class="close" data-type-close></div>
+                        <div class="close hidden" data-type-close></div>
                     </div>
                     <div class="timeline-content-image">
-                        <img src="https://via.placeholder.com/500x300/CFAF70/1D2D50?text=Ekspansi+2015" alt="Ekspansi Layanan 2015"/>
+                        <img src="{{asset('resources/images/time2.jpg')}}" alt="Ekspansi Layanan 2015"/>
                     </div>
                 </div>
                 
@@ -667,10 +667,10 @@
                         <p>Tahun 2020 menjadi momen bersejarah bagi Ambara Advocate. Kami meraih penghargaan bergengsi dari Asian Legal Business sebagai salah satu firma hukum terbaik di Asia, pengakuan atas dedikasi dan kualitas layanan kami.</p>
                         <p>Penghargaan ini mencerminkan komitmen kami terhadap inovasi, profesionalisme, dan hasil yang luar biasa bagi klien. Pencapaian ini memperkuat posisi kami sebagai pemimpin dalam industri hukum regional.</p>
                         <a class="btn" href="javascript:void(0);" title="Pelajari lebih lanjut">Pelajari Lebih Lanjut</a>
-                        <div class="close" data-type-close></div>
+                        <div class="close hidden" data-type-close></div>
                     </div>
                     <div class="timeline-content-image">
-                        <img src="https://via.placeholder.com/500x300/1D2D50/CFAF70?text=Penghargaan+2020" alt="Penghargaan 2020"/>
+                        <img src="{{asset('resources/images/time3.jpg')}}" alt="Penghargaan 2020"/>
                     </div>
                 </div>
                 
@@ -682,10 +682,10 @@
                         <p>Memasuki tahun 2023, Ambara Advocate terus berkembang dengan menyambut partner baru dan memperkuat tim dengan menambah ahli-ahli hukum berpengalaman di berbagai bidang spesialisasi.</p>
                         <p>Penambahan tim ini meliputi ekspert di bidang teknologi hukum, ESG (Environmental, Social, Governance), dan hukum digital. Dengan tim yang lebih kuat, kami siap menghadapi tantangan hukum era modern dan memberikan solusi terdepan.</p>
                         <a class="btn" href="javascript:void(0);" title="Pelajari lebih lanjut">Pelajari Lebih Lanjut</a>
-                        <div class="close" data-type-close></div>
+                        <div class="close hidden" data-type-close></div>
                     </div>
                     <div class="timeline-content-image">
-                        <img src="https://via.placeholder.com/500x300/CFAF70/1D2D50?text=Ekspansi+Tim+2023" alt="Ekspansi Tim 2023"/>
+                        <img src="{{asset('resources/images/time4.jpg')}}" alt="Ekspansi Tim 2023"/>
                     </div>
                 </div>
             </div>
@@ -944,13 +944,13 @@ $(document).ready(function() {
         $currentContent.addClass(active);
 
         // Scroll to shown content if requested
-        if (withScroll && $currentContent.length) {
-            setTimeout(function() {
-                $('html, body').stop().animate({ 
-                    scrollTop: $currentContent.offset().top - 100 
-                }, 800);
-            }, 100);
-        }
+        // if (withScroll && $currentContent.length) {
+        //     setTimeout(function() {
+        //         $('html, body').stop().animate({ 
+        //             scrollTop: $currentContent.offset().top - 100 
+        //         }, 800);
+        //     }, 100);
+        // }
         
     }
     
