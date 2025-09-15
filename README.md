@@ -50,6 +50,9 @@ tutor :
 - bikin cpt backend
 - polylang
 - load more & filter with alphine js
+- tambah border bootom with di navbar
+- pada pengacara tambahkan read more ke page pengacara
+- 
 
 ## Strukture
 
@@ -104,4 +107,7 @@ tutor :
   - subtitle/description
   - accrodion list
 
-+ section 
++ contact us 
+  - banner image
+  - headline
+  - google map(with link more), nama kantor, alamat lengkap, contacts, 
