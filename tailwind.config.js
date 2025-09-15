@@ -10,6 +10,14 @@ module.exports = {
             crimson: ['Crimson Text', 'serif'],
             roboto: ['Roboto']
 
+      },
+      colors: {
+        primary: '#1E3A8A',
+        secondary: '#3B82F6',
+        accent: '#F59E0B',
+        neutral: '#374151',
+        background: '#F9FAFB',
+        surface: '#FFFFFF',
       }
     },
   },

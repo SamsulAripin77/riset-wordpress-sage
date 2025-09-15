@@ -92,7 +92,7 @@
         /* --- Header Scroll Effect --- */
         #main-header {
             transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
         }
         #main-header.scrolled {
             background-color: white;

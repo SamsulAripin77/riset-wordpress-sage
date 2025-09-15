@@ -52,7 +52,7 @@ tutor :
 - load more & filter with alphine js
 - tambah border bootom with di navbar
 - pada pengacara tambahkan read more ke page pengacara
-- 
+- bedakan ukuran banner di desktop dan mobile
 
 ## Strukture
 
