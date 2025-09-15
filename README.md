@@ -38,3 +38,70 @@ tutor :
 - menambahkan efek animasi pada hover card, hover menu
 
 # Part 2
+
+
+#Ambara Startegi : 
+
+## Todo
+- fixing responsive navbar
+- clean asset resource
+- fixing footer
+- complete timeline
+- bikin cpt backend
+- polylang
+- load more & filter with alphine js
+
+## Strukture
+
++ homepage
+  - banner
+  - slider article & load more
+  - section Kami Adalah  : image & description
+  - section deskripsi lain -> read more 
+
++ firma kami :
+  - headline
+  - section : image, tagline, description, read more
+  - timeline
+  - affiliasi
+  - grid brand mengakui
+  - founder
+
++ pengacara kami
+  - banner with title & desc
+  - grid profile with select filter:  all attorney, partner, advisor associate, of counsel
+  - grid dengan pagination tanpa image, componen card : role, name, button link
+  - grid dibagi menjadi 3 kelompok
+
++ detail pengacara
+  - sidebar : list pengacara group by category ( accordion )
+  - main contentn : 
+    - role
+    - name
+    - image
+    - email, linkedin, download porto, description
+    - accordion : area of focus, bidang perwakilan, edukasi, assosiasi dan keangotaan profesional, penghargaan (gallery)
+  - berita lainnya
+
+
++ Blog
+  - filter catagory & areka praktek ( select )
+  - grid card 3 kolom
+  - componen card : imaage, tags/date, title, read more
+  - load more
+
++ single blog
+  - banner
+  - little category
+  - title
+  - title - share
+  - content
+  - realted article
+
++ keahlian kami
+  - banner
+  - title/tagline
+  - subtitle/description
+  - accrodion list
+
++ section 
