@@ -3,7 +3,7 @@
 @endphp
 
 <!-- Header -->
-<header id="main-header" class="p-4 md:p-6 fixed w-full z-50 bg-primary text-surface">
+<header id="main-header" class="p-4 md:p-6 fixed w-full z-50 text-surface">
     <div class="container mx-auto flex justify-between items-center">
         <a href="#" class="brand-logo text-xl font-bold text-surface">
             <img class="max-w-32" src="{{asset('resources/images/ambara-logo.png')}}" alt="Logo" srcset="">
@@ -14,7 +14,7 @@
             <a href="#services" class="nav-link hover:text-secondary">Layanan Kami</a>
             <a href="#blog" class="nav-link hover:text-secondary">Artikel</a>
         </nav>
-        <a href="#contact" class="bg-secondary text-surface py-2 px-6 rounded-full hidden md:block hover:bg-primary transition-colors">Hubungi Kami</a>
+       <a href="#contact" class="bg-accent text-surface py-2 px-6 rounded-full hidden md:block hover:bg-primary transition-colors">Hubungi Kami</a>
         <div id="hamburger-button" class="md:hidden">
             <div class="hamburger">
                 <span class="hamburger-line"></span>
