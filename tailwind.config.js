@@ -12,12 +12,10 @@ module.exports = {
 
       },
       colors: {
-        primary: '#1E3A8A',
-        secondary: '#3B82F6',
-        accent: '#F59E0B',
-        neutral: '#374151',
-        background: '#F9FAFB',
-        surface: '#FFFFFF',
+        primary: '#BFA76A',
+        secondary: '#8C7B4F',
+        surface: '#F8F5EF',
+        background: '#FFFFFF',
       }
     },
   },

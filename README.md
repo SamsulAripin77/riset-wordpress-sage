@@ -43,7 +43,7 @@ tutor :
 #Ambara Startegi : 
 
 ## Todo
-- fixing responsive navbar
+- fixing responsive navbar : ok
 - clean asset resource
 - fixing footer
 - complete timeline
