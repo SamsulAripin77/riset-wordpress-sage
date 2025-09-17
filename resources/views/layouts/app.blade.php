@@ -20,11 +20,11 @@
           roboto: ['Roboto'],
         },
             colors: {
-            primary: '#000000',     // Black
-            secondary: '#374151',   // Gray-700
-            surface: '#F9FAFB',     // Gray-50
+            primary: '#111827',     // Neutral black
+            secondary: '#1F2937',   // Gray-800
+            surface: '#F3F4F6',     // Gray-100
             background: '#FFFFFF',
-            accent: '#10B981',
+            accent: '#065F46',
         },
       },
     },
