@@ -44,15 +44,15 @@ tutor :
 
 ## Todo
 - fixing responsive navbar : ok
-- clean asset resource
-- fixing footer
+- clean asset resource : ok
+- fixing footer : ok
 - complete timeline
 - bikin cpt backend
 - polylang
 - load more & filter with alphine js
 - tambah border bootom with di navbar
 - pada pengacara tambahkan read more ke page pengacara
-- bedakan ukuran banner di desktop dan mobile
+- bedakan ukuran banner di desktop dan mobile : minta asset
 
 ## Strukture
 

@@ -6,7 +6,9 @@
   <!-- Background Image with Overlay -->
   <div class="absolute inset-0">
     <img src="{{asset('resources/images/ambara.png')}}" alt="Tim Ambara Advocate sedang berdiskusi"
-      class="w-full h-full object-[50%_70%] object-cover">
+      class="w-full h-full object-[50%_70%] object-cover hidden md:block">
+    <img src="{{asset('resources/images/ambara-mobile.png')}}" alt="Tim Ambara Advocate sedang berdiskusi"
+      class="w-full h-full object-[50%_70%] object-cover md:hidden">
     <div class="absolute inset-0 bg-gray-900/60"></div>
   </div>
 
@@ -43,89 +45,103 @@
 </section>
 
 <!-- Layanan Kami -->
+@php
+$services = [
+[
+'title' => 'Hukum Korporat',
+'desc' => 'Kami membantu perusahaan dalam pembentukan, restrukturisasi, dan kepatuhan regulasi, memastikan bisnis Anda
+beroperasi secara legal dan efisien.',
+'color' => 'text-secondary',
+],
+[
+'title' => 'Litigasi & Penyelesaian Sengketa',
+'desc' => 'Tim litigasi kami siap mewakili Anda di pengadilan dan arbitrase untuk menyelesaikan sengketa dengan strategi
+yang efektif.',
+'color' => 'text-primary',
+],
+[
+'title' => 'Kekayaan Intelektual (IPR)',
+'desc' => 'Lindungi aset intelektual Anda. Kami menyediakan layanan pendaftaran merek dagang, hak cipta, dan paten.',
+'color' => 'text-primary',
+]
+];
+@endphp
+<!-- Layanan Kami -->
 <section id="services" class="bg-background py-16 md:py-24 text-primary">
   <div class="container mx-auto px-4">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Solusi Hukum yang Beragam untuk Setiap
-      Kebutuhan</h2>
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">
+      Solusi Hukum yang Beragam untuk Setiap Kebutuhan
+    </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Layanan 1 -->
-      <div class="bg-surface p-6 md:p-8 rounded-lg shadow-md">
-        <h3 class="text-xl font-semibold mb-2 text-secondary">Hukum Korporat</h3>
-        <p class="text-primary">Kami membantu perusahaan dalam pembentukan, restrukturisasi, dan kepatuhan regulasi,
-          memastikan bisnis Anda beroperasi secara legal dan efisien.</p>
+      @foreach($services as $service)
+      <div class="bg-surface p-6 md:p-8 rounded-lg shadow-md hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-2 {{ $service['color'] }}">{{ $service['title'] }}</h3>
+        <p class="text-primary">{{ $service['desc'] }}</p>
       </div>
-      <!-- Layanan 2 -->
-      <div class="bg-surface p-6 md:p-8 rounded-lg shadow-md">
-        <h3 class="text-xl font-semibold mb-2">Litigasi & Penyelesaian Sengketa</h3>
-        <p class="text-primary">Tim litigasi kami siap mewakili Anda di pengadilan dan arbitrase untuk menyelesaikan
-          sengketa dengan strategi yang efektif.</p>
-      </div>
-      <!-- Layanan 3 -->
-      <div class="bg-surface p-6 md:p-8 rounded-lg shadow-md">
-        <h3 class="text-xl font-semibold mb-2">Kekayaan Intelektual (IPR)</h3>
-        <p class="text-primary">Lindungi aset intelektual Anda. Kami menyediakan layanan pendaftaran merek dagang, hak
-          cipta, dan paten.</p>
-      </div>
-      <!-- Tambahkan layanan lainnya jika diperlukan -->
+      @endforeach
     </div>
   </div>
 </section>
 
+
 <!-- Sejarah Perusahaan -->
+<?php
+$timeline = [
+  [
+    'tahun' => '2000',
+    'title' => 'Didirikan',
+    'desc'  => 'Ambara Advocate resmi didirikan dengan komitmen untuk memberikan layanan hukum terbaik.'
+  ],
+  [
+    'tahun' => '2001',
+    'title' => 'Ekspansi Layanan',
+    'desc'  => 'Kami memperluas cakupan layanan untuk mencakup area Hukum Korporat dan Kekayaan Intelektual.'
+  ],
+  [
+    'tahun' => '2002',
+    'title' => 'Pengakuan Nasional',
+    'desc'  => 'Ambara Advocate meraih penghargaan sebagai firma hukum terkemuka di Indonesia.'
+  ],
+  [
+    'tahun' => '2003',
+    'title' => 'Era Digital',
+    'desc'  => 'Kami bertransformasi dengan menghadirkan layanan hukum berbasis teknologi digital.'
+  ],
+];
+?>
 <section id="history" class="bg-surface py-16 md:py-24 text-primary">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Jejak Langkah Ambara Advocate</h2>
     <div class="relative max-w-4xl mx-auto">
       <div class="absolute w-1 h-full bg-emerald-600 left-1/2 transform -translate-x-1/2 hidden md:block"></div>
+      @foreach ($timeline as $key => $item)
+      @if ($key % 2 == 0)
       <!-- Timeline Item 1 -->
       <div class="mb-8 flex justify-between items-center w-full right-timeline">
         <div class="order-1 md:w-5/12"></div>
-        <div class="z-20 flex items-center order-1 bg-gray-500 shadow-xl w-8 h-8 rounded-full">
-          <h1 class="mx-auto text-white font-semibold text-lg">1</h1>
+        <div class="z-20 flex items-center order-1 bg-gray-500 shadow-xl w-14 h-14 p-2 rounded-full max-md:mr-2">
+          <p class="mx-auto text-white font-semibold text-md">{{$item['tahun']}}</p>
         </div>
         <div class="order-1 bg-background rounded-lg shadow-xl w-full md:w-5/12 px-6 py-4">
-          <h3 class="mb-3 font-bold text-primary text-xl">Didirikan</h3>
-          <p class="text-sm leading-snug tracking-wide text-primary text-opacity-100">Ambara Advocate resmi didirikan
-            dengan komitmen untuk memberikan layanan hukum terbaik.</p>
+          <h3 class="mb-3 font-bold text-primary text-xl">{{$item['title']}}</h3>
+          <p class="text-sm leading-snug tracking-wide text-primary text-opacity-100">{{ $item['desc'] }}</p>
         </div>
       </div>
+      @else
       <!-- Timeline Item 2 -->
       <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
         <div class="order-1 md:w-5/12"></div>
-        <div class="z-20 flex items-center order-1 bg-gray-500 shadow-xl w-8 h-8 rounded-full">
-          <h1 class="mx-auto text-white font-semibold text-lg">2</h1>
+        <div class="z-20 flex items-center order-1 bg-gray-500 shadow-xl w-14 h-14 p-2 rounded-full max-md:ml-2">
+          <p class="mx-auto text-white font-semibold text-md">{{$item['tahun']}}</p>
         </div>
         <div class="order-1 bg-background rounded-lg shadow-xl w-full md:w-5/12 px-6 py-4">
-          <h3 class="mb-3 font-bold text-primary text-xl">Ekspansi Layanan</h3>
-          <p class="text-sm leading-snug tracking-wide text-primary text-opacity-100">Kami memperluas cakupan layanan
-            untuk mencakup area Hukum Korporat dan Kekayaan Intelektual.</p>
+          <h3 class="mb-3 font-bold text-primary text-xl">{{$item['title']}}</h3>
+          <p class="text-sm leading-snug tracking-wide text-primary text-opacity-100">{{ $item['desc'] }}</p>
         </div>
       </div>
-      <!-- Tambahkan item timeline lainnya di sini -->
-        <!-- Timeline Item 3 -->
-      <div class="mb-8 flex justify-between items-center w-full right-timeline">
-        <div class="order-1 md:w-5/12"></div>
-        <div class="z-20 flex items-center order-1 bg-gray-500 shadow-xl w-8 h-8 rounded-full">
-          <h1 class="mx-auto text-white font-semibold text-lg">3</h1>
-        </div>
-        <div class="order-1 bg-background rounded-lg shadow-xl w-full md:w-5/12 px-6 py-4">
-          <h3 class="mb-3 font-bold text-primary text-xl">Didirikan</h3>
-          <p class="text-sm leading-snug tracking-wide text-primary text-opacity-100">Ambara Advocate resmi didirikan
-            dengan komitmen untuk memberikan layanan hukum terbaik.</p>
-        </div>
-      </div>
-      <!-- Timeline Item 4 -->
-      <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
-        <div class="order-1 md:w-5/12"></div>
-        <div class="z-20 flex items-center order-1 bg-gray-500 shadow-xl w-8 h-8 rounded-full">
-          <h1 class="mx-auto text-white font-semibold text-lg">4</h1>
-        </div>
-        <div class="order-1 bg-background rounded-lg shadow-xl w-full md:w-5/12 px-6 py-4">
-          <h3 class="mb-3 font-bold text-primary text-xl">Ekspansi Layanan</h3>
-          <p class="text-sm leading-snug tracking-wide text-primary text-opacity-100">Kami memperluas cakupan layanan
-            untuk mencakup area Hukum Korporat dan Kekayaan Intelektual.</p>
-        </div>
-      </div>
+
+      @endif
+      @endforeach
     </div>
   </div>
 </section>
@@ -168,85 +184,115 @@
 </section>
 
 <!-- Section Pengakuan, Penghargaan & Afiliasi -->
+@php
+$awards = [
+[
+'image' => asset('resources/images/brand1.png'),
+'link' => 'https://brand1.com',
+'name' => 'Brand Name 1'
+],
+[
+'image' => asset('resources/images/brand2.png'),
+'link' => 'https://brand2.com',
+'name' => 'Brand Name 2'
+],
+[
+'image' => asset('resources/images/brand3.png'),
+'link' => 'https://brand3.com',
+'name' => 'Brand Name 3'
+],
+[
+'image' => asset('resources/images/brand4.png'),
+'link' => 'https://brand4.com',
+'name' => 'Brand Name 4'
+],
+[
+'image' => asset('resources/images/brand5.png'),
+'link' => 'https://brand5.com',
+'name' => 'Brand Name 5'
+],
+[
+'image' => asset('resources/images/brand6.png'),
+'link' => 'https://brand6.com',
+'name' => 'Brand Name 6'
+],
+[
+'image' => asset('resources/images/brand8.png'),
+'link' => 'https://brand8.com',
+'name' => 'Brand Name 8'
+],
+[
+'image' => asset('resources/images/brand9.png'),
+'link' => 'https://brand9.com',
+'name' => 'Brand Name 9'
+],
+];
+@endphp
 <section id="awards" class="bg-surface py-16 md:py-24 text-primary">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Terpercaya dan Terkemuka</h2>
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-8 gap-x-12 lg:gap-x-32">
+      @foreach($awards as $award)
       <div class="flex flex-col items-center text-center border-b border-gray-600">
-        <img class="max-w-20" src="{{asset('resources/images/brand1.png')}}" alt="" srcset="">
-        <p>Brand Name 1</p>
+        <a href="{{ $award['link'] }}" target="_blank" rel="noopener noreferrer">
+          <img class="max-w-20 mx-auto mb-2" src="{{ $award['image'] }}" alt="{{ $award['name'] }}">
+          <p class="text-sm">{{ $award['name'] }}</p>
+        </a>
       </div>
-      <div class="flex flex-col items-center text-center border-b border-gray-600">
-        <img class="max-w-20" src="{{asset('resources/images/brand2.png')}}" alt="" srcset="">
-        <p>Brand Name 2</p>
-      </div>
-      <div class="flex flex-col items-center text-center border-b border-gray-600">
-        <img class="max-w-20" src="{{asset('resources/images/brand3.png')}}" alt="" srcset="">
-        <p>Brand Name 3</p>
-      </div>
-      <div class="flex flex-col items-center text-center border-b border-gray-600">
-        <img class="max-w-20" src="{{asset('resources/images/brand4.png')}}" alt="" srcset="">
-        <p>Brand Name 4</p>
-      </div>
-      <div class="flex flex-col items-center text-center border-b border-gray-600">
-        <img class="max-w-20" src="{{asset('resources/images/brand5.png')}}" alt="" srcset="">
-        <p>Brand Name 5</p>
-      </div>
-      <div class="flex flex-col items-center text-center border-b border-gray-600">
-        <img class="max-w-20" src="{{asset('resources/images/brand6.png')}}" alt="" srcset="">
-        <p>Brand Name 6</p>
-      </div>
-      <div class="flex flex-col items-center text-center border-b border-gray-600">
-        <img class="max-w-20" src="{{asset('resources/images/brand8.png')}}" alt="" srcset="">
-        <p>Brand Name 8</p>
-      </div>
-      <div class="flex flex-col items-center text-center border-b border-gray-600">
-        <img class="max-w-20" src="{{asset('resources/images/brand9.png')}}" alt="" srcset="">
-        <p>Brand Name 9</p>
-      </div>
+      @endforeach
     </div>
   </div>
 </section>
+
+<!-- Publikasi & Blog -->
+@php
+$blogs = [
+[
+'image' => asset('resources/images/blog1.jpg'),
+'title' => 'Judul Artikel Blog 1',
+'desc' => 'Deskripsi singkat artikel blog. Baca selengkapnya...',
+'link' => '#'
+],
+[
+'image' => asset('resources/images/blog2.jpg'),
+'title' => 'Judul Artikel Blog 2',
+'desc' => 'Deskripsi singkat artikel blog. Baca selengkapnya...',
+'link' => '#'
+],
+[
+'image' => asset('resources/images/blog4.jpg'),
+'title' => 'Judul Artikel Blog 4',
+'desc' => 'Deskripsi singkat artikel blog. Baca selengkapnya...',
+'link' => '#'
+],
+];
+@endphp
 
 <!-- Publikasi & Blog -->
 <section id="blog" class="bg-background py-16 md:py-24 text-primary">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Insights Hukum Terbaru</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Artikel Blog 1 -->
-      <div class="bg-surface rounded-lg shadow-md overflow-hidden">
-        <div class="w-full aspect-video bg-gray-300">
-          <img class="w-full h-full object-cover" src="{{asset('resources/images/blog1.jpg')}}" alt="" srcset="">
-        </div>
+      @foreach($blogs as $blog)
+      <div class="bg-surface rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+        <a href="{{ $blog['link'] }}">
+          <div class="w-full aspect-video bg-gray-300">
+            <img class="w-full h-full object-cover" src="{{ $blog['image'] }}" alt="{{ $blog['title'] }}">
+          </div>
+        </a>
         <div class="p-6">
-          <h3 class="text-xl font-semibold mb-2">Judul Artikel Blog 1</h3>
-          <p class="text-gray-600 text-sm">Deskripsi singkat artikel blog. Baca selengkapnya...</p>
+          <h3 class="text-xl font-semibold mb-2">
+            <a href="{{ $blog['link'] }}" class="hover:text-emerald-600">{{ $blog['title'] }}</a>
+          </h3>
+          <p class="text-gray-600 text-sm">{{ $blog['desc'] }}</p>
+          <a href="#" class="text-accent font-semibold mt-4 hover:underline">Baca Selengkapnya</a>
         </div>
       </div>
-      <!-- Artikel Blog 2 -->
-      <div class="bg-surface rounded-lg shadow-md overflow-hidden">
-        <div class="w-full aspect-video bg-gray-300">
-          <img class="w-full h-full object-cover" src="{{asset('resources/images/blog2.jpg')}}" alt="" srcset="">
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-semibold mb-2">Judul Artikel Blog 2</h3>
-          <p class="text-gray-600 text-sm">Deskripsi singkat artikel blog. Baca selengkapnya...</p>
-        </div>
-      </div>
-      <!-- Artikel Blog 3 -->
-      <div class="bg-surface rounded-lg shadow-md overflow-hidden">
-        <div class="w-full aspect-video bg-gray-300">
-          <img class="w-full h-full object-cover" src="{{asset('resources/images/blog3.jpg')}}" alt="" srcset="">
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-semibold mb-2">Judul Artikel Blog 3</h3>
-          <p class="text-gray-600 text-sm">Deskripsi singkat artikel blog. Baca selengkapnya...</p>
-        </div>
-      </div>
-      <!-- Tambahkan artikel lainnya jika diperlukan -->
+      @endforeach
     </div>
   </div>
 </section>
+
 
 <!-- Formulir Kontak -->
 <section id="contact" class="bg-surface py-16 md:py-24 text-primary">
