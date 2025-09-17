@@ -102,6 +102,30 @@
         </div>
       </div>
       <!-- Tambahkan item timeline lainnya di sini -->
+        <!-- Timeline Item 3 -->
+      <div class="mb-8 flex justify-between items-center w-full right-timeline">
+        <div class="order-1 md:w-5/12"></div>
+        <div class="z-20 flex items-center order-1 bg-gray-500 shadow-xl w-8 h-8 rounded-full">
+          <h1 class="mx-auto text-white font-semibold text-lg">3</h1>
+        </div>
+        <div class="order-1 bg-background rounded-lg shadow-xl w-full md:w-5/12 px-6 py-4">
+          <h3 class="mb-3 font-bold text-primary text-xl">Didirikan</h3>
+          <p class="text-sm leading-snug tracking-wide text-primary text-opacity-100">Ambara Advocate resmi didirikan
+            dengan komitmen untuk memberikan layanan hukum terbaik.</p>
+        </div>
+      </div>
+      <!-- Timeline Item 4 -->
+      <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+        <div class="order-1 md:w-5/12"></div>
+        <div class="z-20 flex items-center order-1 bg-gray-500 shadow-xl w-8 h-8 rounded-full">
+          <h1 class="mx-auto text-white font-semibold text-lg">4</h1>
+        </div>
+        <div class="order-1 bg-background rounded-lg shadow-xl w-full md:w-5/12 px-6 py-4">
+          <h3 class="mb-3 font-bold text-primary text-xl">Ekspansi Layanan</h3>
+          <p class="text-sm leading-snug tracking-wide text-primary text-opacity-100">Kami memperluas cakupan layanan
+            untuk mencakup area Hukum Korporat dan Kekayaan Intelektual.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>

@@ -24,7 +24,7 @@
         </div>
     </div>
     <!-- Mobile Menu Container -->
-    <div id="mobile-menu" class="hidden md:hidden bg-surface mt-4 rounded-md shadow-lg">
+    <div id="mobile-menu" class="hidden md:hidden mt-4 rounded-md">
         <a href="#about" class="block py-3 px-4 text-sm text-primary hover:bg-background">Tentang Kami</a>
         <a href="#services" class="block py-3 px-4 text-sm text-primary hover:bg-background">Layanan</a>
         <a href="#team" class="block py-3 px-4 text-sm text-primary hover:bg-background">Tim</a>
