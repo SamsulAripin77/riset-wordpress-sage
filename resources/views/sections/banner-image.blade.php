@@ -1,14 +1,9 @@
 <!-- Section Subscribe -->
-@php
-    $title = $args['title'] ?? 'Article';
-    $tagline = $args['tagline'] ?? 'Dapatkan Informasi dan Wawasan Terbaru';
-    $desc = $args['desc'] ?? 'Artikel kami untuk mendapatkan analisis hukum
-            terkini, wawasan dari para ahli, dan undangan acara eksklusif.';
+@props(['title' => 'artikel', 'image' => asset('resources/images/court2.jpg'), 'tagline' => 'Dapatkan Informasi dan Wawasan Terbaru', 'desc' => 'Artikel kami untuk mendapatkan analisis hukum terbaru, wawasan dari para ahli, dan undangan acara eksklusif.'])
 
-@endphp
 <section id="subscribe" class="relative py-20 md:py-32">
     <div class="absolute inset-0 bg-cover bg-center"
-        style="background-image: url(@asset('resources/images/court2.jpg'));"></div>
+        style="background-image: url({{$image}})"></div>
     <div class="absolute inset-0 bg-black bg-opacity-80"></div>
     <div
         class="relative z-10 container mx-auto px-6 md:px-12 flex flex-col items-center justify-center text-center">

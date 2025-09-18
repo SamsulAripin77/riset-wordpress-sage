@@ -230,3 +230,69 @@ function get_post_tags() {
 }
 
 
+
+
+// Register Custom Post Type for Attorneys
+function create_attorney_cpt() {
+    $labels = array(
+        'name' => __('Attorneys', 'sage'),
+        'singular_name' => __('Attorney', 'sage'),
+        'menu_name' => __('Attorneys', 'sage'),
+        'all_items' => __('All Attorneys', 'sage'),
+        'add_new_item' => __('Add New Attorney', 'sage'),
+        'add_new' => __('Add New', 'sage'),
+        'new_item' => __('New Attorney', 'sage'),
+        'edit_item' => __('Edit Attorney', 'sage'),
+        'update_item' => __('Update Attorney', 'sage'),
+        'view_item' => __('View Attorney', 'sage'),
+        'search_items' => __('Search Attorney', 'sage'),
+    );
+    $args = array(
+        'label' => __('attorney', 'sage'),
+        'description' => __('Post Type for Attorneys', 'sage'),
+        'labels' => $labels,
+        'supports' => array('title', 'editor', 'thumbnail', 'custom-fields'),
+        'hierarchical' => false,
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 5,
+        'menu_icon' => 'dashicons-businessperson',
+        'show_in_admin_bar' => true,
+        'show_in_nav_menus' => true,
+        'can_export' => true,
+        'has_archive' => true,
+        'exclude_from_search' => false,
+        'publicly_queryable' => true,
+        'capability_type' => 'post',
+    );
+    register_post_type('attorneys', $args);
+}
+add_action('init', 'create_attorney_cpt', 0);
+
+// Register Custom Taxonomy for Attorney Categories
+function create_attorney_taxonomy() {
+    $labels = array(
+        'name' => _x('Attorney Categories', 'taxonomy general name'),
+        'singular_name' => _x('Attorney Category', 'taxonomy singular name'),
+        'search_items' => __('Search Attorney Categories'),
+        'all_items' => __('All Attorney Categories'),
+        'parent_item' => __('Parent Attorney Category'),
+        'parent_item_colon' => __('Parent Attorney Category:'),
+        'edit_item' => __('Edit Attorney Category'),
+        'update_item' => __('Update Attorney Category'),
+        'add_new_item' => __('Add New Attorney Category'),
+        'new_item_name' => __('New Attorney Category Name'),
+        'menu_name' => __('Attorney Categories'),
+    );
+
+    register_taxonomy('attorney_category', array('attorneys'), array(
+        'hierarchical' => true,
+        'labels' => $labels,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'rewrite' => array('slug' => 'attorney-category'),
+    ));
+}
+add_action('init', 'create_attorney_taxonomy', 0);

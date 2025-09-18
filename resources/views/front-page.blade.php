@@ -150,36 +150,29 @@ $timeline = [
 <section id="team" class="bg-background py-16 md:py-24 text-primary">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Tim Profesional Kami</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Anggota Tim 1 -->
-      <div class="bg-surface rounded-lg shadow-md overflow-hidden">
-        <div class="w-full aspect-square"><img class="h-full w-full object-cover"
-            src="{{asset('resources/images/lawyer6.jpg')}}" alt="" srcset=""></div>
-        <div class="p-6 text-center">
-          <h3 class="text-xl font-semibold text-secondary">Nama Pengacara 1</h3>
-          <p class="text-primary">Managing Partner</p>
-        </div>
+    @php
+      $args = [
+          'post_type' => 'attorneys',
+          'posts_per_page' => 3
+      ];
+      $attorneys = new WP_Query($args);
+    @endphp
+
+    @if ($attorneys->have_posts())
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        @while ($attorneys->have_posts()) @php $attorneys->the_post() @endphp
+          @php
+            $image = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: 'https://via.placeholder.com/400';
+            $name = get_the_title();
+            $terms = get_the_terms(get_the_ID(), 'attorney_category');
+            $position = !empty($terms) ? $terms[0]->name : '';
+            $link => 
+          @endphp
+          <x-attorney-card :image="$image" :name="$name" :position="$position" />
+        @endwhile
       </div>
-      <!-- Anggota Tim 2 -->
-      <div class="bg-surface rounded-lg shadow-md overflow-hidden">
-        <div class="w-full aspect-square"><img class="h-full w-full object-cover"
-            src="{{asset('resources/images/lawyer5.jpg')}}" alt="" srcset=""></div>
-        <div class="p-6 text-center">
-          <h3 class="text-xl font-semibold">Nama Pengacara 2</h3>
-          <p class="text-primary">Partner</p>
-        </div>
-      </div>
-      <!-- Anggota Tim 3 -->
-      <div class="bg-surface rounded-lg shadow-md overflow-hidden">
-        <div class="w-full aspect-square"><img class="h-full w-full object-cover"
-            src="{{asset('resources/images/lawyer2.jpg')}}" alt="" srcset=""></div>
-        <div class="p-6 text-center">
-          <h3 class="text-xl font-semibold">Nama Pengacara 3</h3>
-          <p class="text-primary">Senior Associate</p>
-        </div>
-      </div>
-      <!-- Tambahkan anggota tim lainnya di sini -->
-    </div>
+      @php wp_reset_postdata() @endphp
+    @endif
   </div>
 </section>
 
