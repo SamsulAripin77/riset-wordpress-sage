@@ -8,11 +8,10 @@
          x-init="init()">
 
       {{-- Filters --}}
-      <div class="flex flex-col md:flex-row gap-4 mb-12">
+      <div class="flex flex-col md:flex-row lg:justify-end gap-4 mb-12">
         {{-- Category Filter --}}
-        <div class="w-full md:w-1/2">
-          <label for="category-filter" class="block mb-2 text-sm font-medium text-gray-900">Filter by Category</label>
-          <select id="category-filter" x-model="selectedCategory" @change="applyFilter()" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-emerald-500 focus:border-emerald-500 block w-full p-2.5">
+        <div class="w-full md:w-1/2 lg:w-1/4">
+          <select id="category-filter" x-model="selectedCategory" @change="applyFilter()" class="bg-transparent border-0 border-b border-accent text-primary text-sm focus:ring-0 focus:border-accent block w-full p-2.5">
             <option value="">All Categories</option>
             <template x-for="category in categories" :key="category.term_id">
               <option :value="category.slug" x-text="category.name"></option>
@@ -21,10 +20,9 @@
         </div>
 
         {{-- Tag Filter --}}
-        <div class="w-full md:w-1/2">
-          <label for="tag-filter" class="block mb-2 text-sm font-medium text-gray-900">Filter by Tag</label>
-          <select id="tag-filter" x-model="selectedTag" @change="applyFilter()" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-emerald-500 focus:border-emerald-500 block w-full p-2.5">
-            <option value="">All Tags</option>
+        <div class="w-full md:w-1/2 lg:w-1/4">
+          <select id="tag-filter" x-model="selectedTag" @change="applyFilter()" class="bg-transparent border-0 border-b border-accent text-primary text-sm focus:ring-0 focus:border-accent block w-full p-2.5">
+            <option value="">All Area</option>
             <template x-for="tag in tags" :key="tag.term_id">
               <option :value="tag.slug" x-text="tag.name"></option>
             </template>

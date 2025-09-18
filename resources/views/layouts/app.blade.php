@@ -24,8 +24,8 @@
             primary: '#111827',     // Neutral black
             secondary: '#1F2937',   // Gray-800
             surface: '#F3F4F6',     // Gray-100
-            background: '#FFFFFF',
-            accent: '#065F46',
+            background: '#FFFFFF',   //white
+            accent: '#065F46',      // hijau
         },
       },
     },
