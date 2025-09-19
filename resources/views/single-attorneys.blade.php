@@ -18,7 +18,14 @@
                     <svg class="w-4 h-4 transform transition-transform" :class="{ 'rotate-180': openCategory === '{{ $category->slug }}' }" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                   </div>
                 </button>
-                <div x-show="openCategory === '{{ $category->slug }}'" x-transition class="pb-4 px-2">
+                <div x-show="openCategory === '{{ $category->slug }}'" 
+                     x-transition:enter="transition ease-out duration-300"
+                     x-transition:enter-start="opacity-0 transform -translate-y-2"
+                     x-transition:enter-end="opacity-100 transform translate-y-0"
+                     x-transition:leave="transition ease-in duration-200"
+                     x-transition:leave-start="opacity-100 transform translate-y-0"
+                     x-transition:leave-end="opacity-0 transform -translate-y-2"
+                     class="pb-4 px-2" style="display: none;">
                   <ul>
                     @foreach ($category->attorneys as $attorney_item)
                       <li>
@@ -46,9 +53,18 @@
               <p class="text-accent font-semibold">{{-- Role/Position --}}</p>
               <h1 class="text-3xl md:text-4xl font-bold text-primary mb-4">{{ the_title() }}</h1>
               <div class="flex items-center space-x-4 mb-6">
-                <a href="mailto:{{-- email --}}" class="text-gray-500 hover:text-accent"><i class="fas fa-envelope"></i> Email</a>
-                <a href="{{-- linkedin url --}}" target="_blank" class="text-gray-500 hover:text-accent"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="{{-- portfolio file url --}}" download class="text-gray-500 hover:text-accent"><i class="fas fa-download"></i> Download Portofolio</a>
+                <a href="mailto:{{-- email --}}" class="text-gray-500 hover:text-accent flex items-center space-x-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                  <span>Email</span>
+                </a>
+                <a href="{{-- linkedin url --}}" target="_blank" class="text-gray-500 hover:text-accent flex items-center space-x-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                  <span>LinkedIn</span>
+                </a>
+                <a href="{{-- portfolio file url --}}" download class="text-gray-500 hover:text-accent flex items-center space-x-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                  <span>Download Portofolio</span>
+                </a>
               </div>
               <div class="prose max-w-none text-gray-600">
                 {{ the_content() }}
@@ -73,7 +89,14 @@
                     <svg class="w-5 h-5 transform transition-transform" :class="{ 'rotate-180': open === '{{ $slug }}' }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                   </div>
                 </button>
-                <div x-show="open === '{{ $slug }}'" x-transition class="pb-5 prose max-w-none">
+                <div x-show="open === '{{ $slug }}'"
+                     x-transition:enter="transition ease-out duration-300"
+                     x-transition:enter-start="opacity-0 transform -translate-y-2"
+                     x-transition:enter-end="opacity-100 transform translate-y-0"
+                     x-transition:leave="transition ease-in duration-200"
+                     x-transition:leave-start="opacity-100 transform translate-y-0"
+                     x-transition:leave-end="opacity-0 transform -translate-y-2"
+                     class="pb-5 prose max-w-none" style="display: none;">
                   @if ($slug === 'penghargaan')
                     {{-- Gallery for awards --}}
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -84,7 +107,7 @@
                     </div>
                   @else
                     {{-- Placeholder for content --}}
-                    <p>Details for {{ $title }} go here. Use get_field('{{$slug}}') or similar.</p>
+                    <p>Details for {{ $title }} go here. Use get_field('{{$slug}}') or similar. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero molestias sequi nemo pariatur doloremque deserunt voluptatum assumenda modi ipsam, accusantium, voluptatem tenetur quia repellat aperiam eaque aspernatur asperiores distinctio. Animi.</p>
                   @endif
                 </div>
               </div>
@@ -94,25 +117,7 @@
       </main>
     </div>
 
-    {{-- Other News --}}
-    <section class="mt-24">
-        <h2 class="text-2xl font-bold text-primary mb-6 text-center">Berita Lainnya</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {{-- Placeholder for other news/articles --}}
-            @for ($i = 0; $i < 3; $i++)
-            <div class="bg-surface rounded-lg shadow-md overflow-hidden group">
-                <a href="#" class="block">
-                    <img src="https://placehold.co/400x300" alt="Blog post" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <p class="text-sm text-gray-500 mb-2">October 28, 2025</p>
-                        <h3 class="text-lg font-bold text-primary group-hover:text-accent transition-colors">Judul Artikel Berita</h3>
-                        <p class="text-gray-600 mt-2">Sedikit kutipan dari artikel berita atau blog post...</p>
-                    </div>
-                </a>
-            </div>
-            @endfor
-        </div>
-    </section>
+    @include('partials.components.other-news')
 
   </div>
 
