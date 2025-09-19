@@ -166,6 +166,7 @@ $timeline = [
             $name = get_the_title();
             $terms = get_the_terms(get_the_ID(), 'attorney_category');
             $position = !empty($terms) ? $terms[0]->name : '';
+            'link' => get_permalink(get_the_ID()),
             $link => 
           @endphp
           <x-attorney-card :image="$image" :name="$name" :position="$position" />
