@@ -94,7 +94,10 @@ add_action('wp_enqueue_scripts', function () {
 
 function handle_glboal_js_var($handle){
       global $post;
-      $slug = $post->post_name;
+      $slug = '';
+      if (is_a($post, 'WP_Post')) {
+          $slug = $post->post_name;
+      }
       $is_loggedin = false;
       $current_user = wp_get_current_user();
 
