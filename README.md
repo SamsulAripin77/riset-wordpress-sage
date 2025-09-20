@@ -53,7 +53,9 @@ tutor :
 - tambah border bootom with di navbar
 - pada pengacara tambahkan read more ke page pengacara
 - bedakan ukuran banner di desktop dan mobile : minta asset
-- add aos
+- add aos : ok
+- hide wp-login
+- create reusable block with dinamic content padding,margin, background
 
 ## Strukture
 
