@@ -35,5 +35,5 @@
 
     @include('sections.keahlian-kami')
 
-    @include('partials.components.other-news')
+    @include('sections.other-news')
 @endsection

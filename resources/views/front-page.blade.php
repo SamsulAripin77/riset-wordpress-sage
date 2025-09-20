@@ -32,6 +32,7 @@ Template Name: Home
 <section id="about" class="bg-surface py-16 md:py-24 pt-20 text-primary" data-aos="fade-up">
   <div class="container mx-auto px-4 flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16">
     <div class="md:w-1/2">
+      <p class="text-accent font-semibold uppercase tracking-wider mb-2">Founder ambaraadvocate</p>
       <h2 class="text-3xl md:text-4xl font-bold text-primary">Lebih Dari Sekadar Pengacara</h2>
       <p class="mt-4 text-primary leading-relaxed">Ambara Advocate adalah firma hukum yang berdedikasi untuk memberikan
         layanan hukum komprehensif, didukung oleh tim ahli yang berkomitmen pada integritas dan keunggulan. Kami percaya
@@ -304,11 +305,11 @@ $blogs = [
       menanggapi pertanyaan Anda.</p>
     <form class="max-w-xl mx-auto space-y-4">
       <input type="text" placeholder="Nama Lengkap"
-        class="w-full p-3 rounded-lg text-primary bg-background border border-secondary">
+        class="w-full p-3 bg-background rounded-sm border-b border-secondary focus:outline-none focus:border-accent focus:ring-0">
       <input type="email" placeholder="Email"
-        class="w-full p-3 rounded-lg text-primary bg-background border border-secondary">
+        class="w-full p-3 bg-background rounded-sm border-b border-secondary focus:outline-none focus:border-accent focus:ring-0">
       <textarea placeholder="Pesan Anda" rows="4"
-        class="w-full p-3 rounded-lg text-primary bg-background border border-secondary"></textarea>
+        class="w-full p-3 bg-background rounded-sm border-b border-secondary focus:outline-none focus:border-accent focus:ring-0"></textarea>
       <button type="submit"
         class="w-full bg-accent py-3 rounded-lg font-semibold text-surface hover:bg-primary transition-colors">Kirim
         Pesan</button>

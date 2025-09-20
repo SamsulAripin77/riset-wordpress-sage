@@ -8,7 +8,9 @@ $args = [
 $latest_posts = new WP_Query($args);
 @endphp
 
-<section class="py-8 md:py-20 max-md:px-4"  data-aos="fade-up">
+@props(['bg' =>  'bg-background'])
+
+<section class="py-8 md:pt-16 md:pb-20 max-md:px-4 {{$bg}}"  data-aos="fade-up">
     <div class="container mx-auto">
         <h2 class="text-2xl font-bold text-primary mb-6 text-left">Berita Lainnya</h2>
         @if ($latest_posts->have_posts())
@@ -27,7 +29,7 @@ $latest_posts = new WP_Query($args);
                                         <p class="text-sm text-gray-500 mb-2">{{ get_the_date() }}</p>
                                         <h3 class="line-clamp-1 text-lg font-bold text-primary group-hover:text-accent transition-colors">{{ the_title() }}</h3>
                                         <div class="text-gray-600 mt-2 line-clamp-2">
-                                            {{ get_the_excerpt() }}
+                                            {!! get_the_content() !!}
                                         </div>
                                     </div>
                                 </a>

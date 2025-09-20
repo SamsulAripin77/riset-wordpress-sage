@@ -29,7 +29,7 @@
       {{-- Blog Grid --}}
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <template x-for="post in posts" :key="post.id">
-          <div data-aos="fade-up" class="bg-surface rounded-lg shadow-md overflow-hidden hover:shadow-lg transition flex flex-col">
+          <div data-aos="fade-up" class="bg-surface/10 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition flex flex-col">
             <a :href="post.link">
               <div class="w-full h-48 bg-gray-300">
                 <img class="w-full h-full object-cover" :src="post.image" :alt="post.title">

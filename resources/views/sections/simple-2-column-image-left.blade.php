@@ -1,6 +1,6 @@
 @props(['image' => asset('resources/images/team1.jpg'), 'title' => 'FIRMA KAMI', 'subtitle' => 'Salah satu firma hukum independen terkemuka di Indonesia', 'desc' => 'Kami menggabungkan pengalaman dan keahlian dengan standar layanan yang tinggi, didukung oleh inovasi untuk memberikan solusi yang tepat bagi klien. Kami menggabungkan pengalaman dan keahlian dengan standar layanan yang tinggi, didukung oleh inovasi untuk memberikan solusi yang tepat bagi klien. ' ])
 
-<section id="founder" class="bg-white py-8 md:py-32 max-md:px-4" data-aos="fade-right" data-aos-duration="1000">
+<section id="founder" class="bg-white py-8 md:pb-16 md:pt-16 max-md:px-4" data-aos="fade-right" data-aos-duration="1000">
     <div class="container mx-auto flex flex-col md:flex-row items-center gap-12">
         <div class="md:w-1/2">
             <img src="{{$image}}" alt="Foto Founder" class="w-full h-auto rounded-xl shadow-lg">

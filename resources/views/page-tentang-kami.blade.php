@@ -7,11 +7,14 @@
 
     @include('sections.simple-2-column')
 
-    @include('sections.simple-2-column-image-right')
-
-    @include('sections.simple-2-column-grid-image')
-
     @include('sections.simple-2-column-image-left')
 
-    @include('partials.components.other-news')
+
+    
+    @include('sections.simple-2-column-grid-image')
+    
+    @include('sections.simple-2-column-image-right')
+
+
+    @include('sections.other-news', ['bg' => 'bg-surface'])
 @endsection

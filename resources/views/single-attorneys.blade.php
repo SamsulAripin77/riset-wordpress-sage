@@ -117,7 +117,7 @@
       </main>
     </div>
 
-    @include('partials.components.other-news')
+    @include('sections.other-news')
 
   </div>
 

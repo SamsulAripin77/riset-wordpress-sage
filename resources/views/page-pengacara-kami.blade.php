@@ -6,7 +6,7 @@
   'tagline' => 'Tim Profesional Kami',
   'desc' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora placeat dolor totam unde quis ducimus, enim'
 ])
-<section class="container mx-auto px-4 pt-16">
+<section class="container mx-auto px-4 py-8 pt-16 md:pb-16">
   <div x-data="attorneyFilter()" x-init="init()">
     <!-- Loading Spinner -->
     <div x-show="isLoading" class="text-center">
@@ -95,7 +95,7 @@
     </div>
   </div>
 </section>
-@include('partials.components.other-news')
+@include('sections.other-news', ['bg' => 'bg-surface'])
 <script>
   function attorneyFilter() {
     return {

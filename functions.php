@@ -203,7 +203,7 @@ function get_blog_posts(WP_REST_Request $request) {
                 'link' => get_permalink(),
                 'date' => get_the_date('j F Y'),
                 'image' => get_the_post_thumbnail_url($post_id, 'large') ?: 'https://via.placeholder.com/800x600.png/f3f4f6/6b7280?text=No+Image',
-                'desc' => get_the_excerpt(),
+                'desc' => wp_strip_all_tags(get_the_content()),
                 'tags' => $tags_list,
             ];
         }
