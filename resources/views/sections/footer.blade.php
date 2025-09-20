@@ -9,7 +9,7 @@
                     Firma hukum yang berkomitmen pada keunggulan, integritas, dan inovasi
                     untuk memberikan solusi hukum terbaik.
                 </p>
-                <p class="text-sm">Jl. Sudirman No. 123, Jakarta Selatan 12190</p>
+                <p class="text-sm">Jl. xxxx No. 123, Jakarta Selatan 12190</p>
             </div>
 
             <!-- Kolom 2: Kontak -->
@@ -17,8 +17,8 @@
                 <h4 class="font-semibold text-lg mb-4">Kontak</h4>
                 <ul class="space-y-2 text-sm">
                     <li>Email: info@ambaraadvocate.com</li>
-                    <li>Telp: +62 21 1234 5678</li>
-                    <li>Fax: +62 21 8765 4321</li>
+                    <li>Telp: +62 xxx xxx xxxx</li>
+                    <li>Fax: +62 xxx xxx xxx</li>
                 </ul>
             </div>
 
@@ -29,21 +29,21 @@
                     <div>
                         <h4 class="font-semibold text-lg mb-4">Menu</h4>
                         <ul class="space-y-2 text-sm">
-                            <li><a href="#about" class="hover:text-secondary">Tentang Kami</a></li>
-                            <li><a href="#services" class="hover:text-secondary">Layanan</a></li>
-                            <li><a href="#team" class="hover:text-secondary">Tim</a></li>
-                            <li><a href="#articles" class="hover:text-secondary">Artikel</a></li>
-                            <li><a href="#contact" class="hover:text-secondary">Kontak</a></li>
+                            <li><a href="/tentang-kami" class="hover:text-secondary">Tentang Kami</a></li>
+                            <li><a href="/keahlian-kami/" class="hover:text-secondary">Keahlian Kami</a></li>
+                            <li><a href="/pengacara-kami/" class="hover:text-secondary">Pengacara Kami</a></li>
+                            <li><a href="/artikel/" class="hover:text-secondary">Artikel</a></li>
+                            <li><a href="/" class="hover:text-secondary">Kontak</a></li>
                         </ul>
                     </div>
                     <!-- Informasi -->
                     <div>
                         <h4 class="font-semibold text-lg mb-4">Informasi</h4>
                         <ul class="space-y-2 text-sm">
-                            <li><a href="#privacy" class="hover:text-secondary">Privasi</a></li>
-                            <li><a href="#policy" class="hover:text-secondary">Kebijakan</a></li>
-                            <li><a href="#faq" class="hover:text-secondary">FAQ</a></li>
-                            <li><a href="#support" class="hover:text-secondary">Dukungan</a></li>
+                            <li><a href="#" class="hover:text-secondary">Privasi</a></li>
+                            <li><a href="#" class="hover:text-secondary">Kebijakan</a></li>
+                            <li><a href="#" class="hover:text-secondary">FAQ</a></li>
+                            <li><a href="#" class="hover:text-secondary">Dukungan</a></li>
                         </ul>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
             </div>
 
             <!-- Copyright -->
-            <p class="text-sm">&copy; 2024 Ambara Advocate. All rights reserved.</p>
+            <p class="text-sm">&copy; 2025 Ambara Advocate. All rights reserved.</p>
         </div>
     </div>
 </footer>

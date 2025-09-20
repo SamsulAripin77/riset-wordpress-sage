@@ -1,8 +1,8 @@
  @props(['logos' => [
-     [ 'year' => '2024', 'name' => 'Law Firm of the Year', 'logo' => asset('resources/images/brand1.png')  ],
-            [ 'year' => '2024', 'name' => 'Legal Excellence Award', 'logo' => asset('resources/images/brand2.png')  ],
-            [ 'year' => '2023', 'name' => 'Top Tier Law Firm', 'logo' =>  asset('resources/images/brand3.png')  ],
-            [ 'year' => '2024', 'name' => 'Best Corporate Law Firm', 'logo' =>  asset('resources/images/brand4.png')  ]
+     [ 'year' => '2024', 'name' => 'Award 1', 'logo' => asset('resources/images/brand1.png')  ],
+            [ 'year' => '2024', 'name' => 'Award 2', 'logo' => asset('resources/images/brand2.png')  ],
+            [ 'year' => '2023', 'name' => 'Award 3', 'logo' =>  asset('resources/images/brand3.png')  ],
+            [ 'year' => '2024', 'name' => 'Award 4', 'logo' =>  asset('resources/images/brand4.png')  ]
 ],
 'title' => 'Penghargaan',
 'subtitle' => 'Pengakuan dari Industri',
