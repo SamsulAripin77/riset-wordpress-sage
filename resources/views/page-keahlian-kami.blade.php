@@ -5,21 +5,8 @@
         'title' => 'Keahlian Kami',
     ])
 
-    <section class="bg-background py-16 md:py-24 text-primary">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
-                {{-- Kolom Kiri --}}
-                <div>
-                    <h4 class="text-accent font-semibold uppercase tracking-wider">Keahlian Kami</h4>
-                    <h2 class="text-3xl md:text-4xl font-bold text-primary mt-2">Solusi Hukum Inovatif untuk Tantangan Kompleks</h2>
-                </div>
-                {{-- Kolom Kanan --}}
-                <div>
-                    <p class="text-primary leading-relaxed">Di Ambara Advocate, kami menggabungkan keahlian mendalam dengan pendekatan strategis untuk memberikan solusi hukum yang efektif. Tim kami memiliki rekam jejak yang terbukti dalam menangani berbagai kasus rumit di berbagai sektor industri, memastikan klien kami selalu selangkah lebih maju.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('sections.simple-2-column')
+
 
     @php
     $expertise_list = [
