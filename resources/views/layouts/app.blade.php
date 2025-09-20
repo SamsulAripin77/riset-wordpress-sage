@@ -15,8 +15,10 @@
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+   
     <script type="module">
         tailwind.config = {
     theme: {
@@ -76,6 +78,11 @@
     @stack('scripts')
     </main>
 
+     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+     <script>
+  AOS.init();
+</script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
         const header = document.getElementById('main-header');
