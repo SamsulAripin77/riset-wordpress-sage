@@ -57,8 +57,8 @@
                     @foreach ($expertise_list as $item)
                         <div class="border-b border-secondary">
                             <h2 id="accordion-heading-{{ $loop->iteration }}">
-                                <button type="button" @click="selected = (selected === {{ $loop->iteration }} ? null : {{ $loop->iteration }})" class="flex items-center justify-between w-full p-5 font-semibold text-left text-primary  transition duration-200 hover:bg-accent/50"
-                                    :class="{ 'bg-surface dark:bg-secondary/30': selected === {{ $loop->iteration }} }">
+                                <button type="button" @click="selected = (selected === {{ $loop->iteration }} ? null : {{ $loop->iteration }})" class="rounded-t-md flex items-center justify-between w-full p-5 font-semibold text-left text-primary  transition duration-200 hover:bg-accent/10 hover:text-accent"
+                                    :class="{ 'bg-surface dark:bg-secondary/10': selected === {{ $loop->iteration }} }">
                                     <span class="text-lg">{{ $item['title'] }}</span>
                                     <svg class="w-3 h-3 shrink-0 transition-transform duration-200" :class="{ 'rotate-180': selected === {{ $loop->iteration }} }" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />

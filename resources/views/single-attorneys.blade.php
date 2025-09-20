@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container mx-auto py-16 md:py-24 px-4">
+  <div class="container mx-auto py-16 md:py-20 px-4">
     <div class="flex flex-col lg:flex-row gap-12">
 
       {{-- Sidebar --}}

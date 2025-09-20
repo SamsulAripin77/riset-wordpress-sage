@@ -6,7 +6,7 @@
   'tagline' => 'Tim Profesional Kami',
   'desc' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora placeat dolor totam unde quis ducimus, enim'
 ])
-<div class="container mx-auto py-16 md:py-24 px-4">
+<section class="container mx-auto px-4">
   <div x-data="attorneyFilter()" x-init="init()">
     <!-- Loading Spinner -->
     <div x-show="isLoading" class="text-center">
@@ -30,7 +30,7 @@
       <!-- Attorney Grid -->
       <div :class="{ 'hidden': selectedCategory !== '' }">
         <template x-for="(categoryData, slug) in allAttorneys" :key="slug">
-          <section class="mb-16">
+          <section class="mt-16">
             <h2 class="text-2xl font-bold text-primary mb-6" x-text="categoryData.name"></h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <template x-for="attorney in categoryData.attorneys.slice(0, visibleCounts[slug] || 3)"
@@ -92,8 +92,8 @@
       </div>
     </div>
   </div>
-</div>
-
+</section>
+@include('partials.components.other-news')
 <script>
   function attorneyFilter() {
     return {

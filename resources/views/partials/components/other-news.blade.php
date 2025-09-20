@@ -8,7 +8,7 @@ $args = [
 $latest_posts = new WP_Query($args);
 @endphp
 
-<section class="mt-24">
+<section class="py-16 mg:py-20">
     <div class="container mx-auto">
         <h2 class="text-2xl font-bold text-primary mb-6 text-left">Berita Lainnya</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
