@@ -1,4 +1,4 @@
-<footer class="bg-primary text-surface py-12">
+<footer class="bg-primary text-surface py-12 mt-8 md:mt-12 xl:mt-20">
     <div class="container mx-auto px-6 md:px-12">
         <!-- Baris Pertama: 4 Kolom -->
         <div class="grid grid-cols-1 md:grid-cols-10 gap-8">
