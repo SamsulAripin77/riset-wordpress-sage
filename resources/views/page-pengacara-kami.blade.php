@@ -6,7 +6,7 @@
   'tagline' => 'Tim Profesional Kami',
   'desc' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora placeat dolor totam unde quis ducimus, enim'
 ])
-<section class="container mx-auto px-4">
+<section class="container mx-auto px-4 pt-16">
   <div x-data="attorneyFilter()" x-init="init()">
     <!-- Loading Spinner -->
     <div x-show="isLoading" class="text-center">
@@ -36,6 +36,7 @@
               <template x-for="attorney in categoryData.attorneys.slice(0, visibleCounts[slug] || 3)"
                 :key="attorney.id">
                 <div
+                  data-aos="fade-up"
                   class="bg-surface rounded-lg shadow-md overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                   <a :href="attorney.link" class="block">
                     <div class="w-full aspect-[4/5] relative">
@@ -70,6 +71,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <template x-for="attorney in allAttorneys[selectedCategory].attorneys" :key="attorney.id">
               <div
+                  data-aos="fade-up"
                   class="bg-surface rounded-lg shadow-md overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                   <a :href="attorney.link" class="block">
                     <div class="w-full aspect-[4/5] relative">

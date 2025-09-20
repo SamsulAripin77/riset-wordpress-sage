@@ -4,7 +4,7 @@
                     terbukti dalam menangani berbagai kasus rumit di berbagai sektor industri, memastikan klien kami
                     selalu selangkah lebih maju.'])
 
-<section class="bg-background py-16 md:py-24 text-primary">
+<section class="bg-background py-8 md:py-24 text-primary" data-aos="fade-up" data-aos-duration="1000">
     <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
             {{-- Kolom Kiri --}}

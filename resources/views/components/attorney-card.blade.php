@@ -1,6 +1,6 @@
 @props(['image', 'name', 'position'])
 
-<div class="bg-surface rounded-lg shadow-md overflow-hidden">
+<div class="bg-surface/10 rounded-lg shadow-md overflow-hidden">
   <div class="w-full aspect-square">
     <img class="h-full w-full object-cover" src="{{ $image }}" alt="{{ $name }}">
   </div>

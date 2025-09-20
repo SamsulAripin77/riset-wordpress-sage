@@ -1,7 +1,7 @@
 <!-- Section Subscribe -->
 @props(['title' => 'artikel', 'image' => asset('resources/images/court2.jpg'), 'tagline' => 'Dapatkan Informasi dan Wawasan Terbaru', 'desc' => 'Artikel kami untuk mendapatkan analisis hukum terbaru, wawasan dari para ahli, dan undangan acara eksklusif.'])
 
-<section id="subscribe" class="relative py-20 md:py-32 xl:py-48">
+<section id="subscribe" class="relative  min-h-[80vh] md:min-h-[50vh] xl:min-h-[80vh] flex flex-col justify-center" data-aos="fade-in" data-aos-duration="1000">
     <div class="absolute inset-0 bg-cover bg-center"
         style="background-image: url({{$image}})"></div>
     <div class="absolute inset-0 bg-black bg-opacity-80"></div>

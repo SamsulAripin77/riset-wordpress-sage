@@ -8,7 +8,7 @@ $args = [
 $latest_posts = new WP_Query($args);
 @endphp
 
-<section class="py-16 mg:py-20">
+<section class="py-8 md:py-20 max-md:px-4"  data-aos="fade-up">
     <div class="container mx-auto">
         <h2 class="text-2xl font-bold text-primary mb-6 text-left">Berita Lainnya</h2>
         @if ($latest_posts->have_posts())

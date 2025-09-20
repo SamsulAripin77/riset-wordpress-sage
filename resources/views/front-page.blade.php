@@ -4,8 +4,8 @@ Template Name: Home
 
 @extends('layouts.app')
 @section('content')
-<!-- Hero Section -->
-<section id="hero" class="relative h-screen text-center flex flex-col justify-end text-surface">
+<!-- AOS: fade-in -->
+<section id="hero" class="relative h-screen text-center flex flex-col justify-end text-surface" data-aos="fade-in">
   <div class="absolute inset-0 bg-primary/80"></div>
   <!-- Background Image with Overlay -->
   <div class="absolute inset-0">
@@ -28,8 +28,8 @@ Template Name: Home
   </div>
 </section>
 
-<!-- Tentang Kami -->
-<section id="about" class="bg-surface py-16 md:py-24 pt-20 text-primary">
+<!-- AOS: fade-up -->
+<section id="about" class="bg-surface py-16 md:py-24 pt-20 text-primary" data-aos="fade-up">
   <div class="container mx-auto px-4 flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16">
     <div class="md:w-1/2">
       <h2 class="text-3xl md:text-4xl font-bold text-primary">Lebih Dari Sekadar Pengacara</h2>
@@ -70,15 +70,15 @@ yang efektif.',
 ]
 ];
 @endphp
-<!-- Layanan Kami -->
-<section id="services" class="bg-background py-16 md:py-24 text-primary">
+<!-- AOS: fade-up -->
+<section id="services" class="bg-background py-16 md:py-24 text-primary" data-aos="fade-up">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">
       Solusi Hukum yang Beragam untuk Setiap Kebutuhan
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      @foreach($services as $service)
-      <div class="bg-surface p-6 md:p-8 rounded-lg shadow-md hover:shadow-lg transition">
+      @foreach($services as $key => $service)
+      <div class="bg-surface p-6 md:p-8 rounded-lg shadow-md hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="{{ $key * 100 }}">
         <h3 class="text-xl font-semibold mb-2 {{ $service['color'] }}">{{ $service['title'] }}</h3>
         <p class="text-primary">{{ $service['desc'] }}</p>
       </div>
@@ -114,7 +114,8 @@ $timeline = [
 ];
 ?>
 
-<section id="history" class="bg-surface py-16 md:py-24 text-primary">
+<!-- AOS: fade-up -->
+<section id="history" class="bg-surface py-16 md:py-24 text-primary" data-aos="fade-up">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Jejak Langkah Ambara Advocate</h2>
     <div class="relative max-w-4xl mx-auto">
@@ -122,7 +123,7 @@ $timeline = [
       @foreach ($timeline as $key => $item)
       @if ($key % 2 == 0)
       <!-- Timeline Item 1 -->
-      <div class="mb-8 flex justify-between items-center w-full right-timeline">
+      <div class="mb-8 flex justify-between items-center w-full right-timeline" data-aos="fade-right">
         <div class="order-1 md:w-5/12"></div>
         <div class="z-20 flex items-center order-1 bg-gray-500 shadow-xl w-14 h-14 p-2 rounded-full max-md:mr-2">
           <p class="mx-auto text-white font-semibold text-md">{{$item['tahun']}}</p>
@@ -134,7 +135,7 @@ $timeline = [
       </div>
       @else
       <!-- Timeline Item 2 -->
-      <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+      <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline" data-aos="fade-left">
         <div class="order-1 md:w-5/12"></div>
         <div class="z-20 flex items-center order-1 bg-gray-500 shadow-xl w-14 h-14 p-2 rounded-full max-md:ml-2">
           <p class="mx-auto text-white font-semibold text-md">{{$item['tahun']}}</p>
@@ -151,8 +152,8 @@ $timeline = [
   </div>
 </section>
 
-<!-- Tim Pengacara -->
-<section id="team" class="bg-background py-16 md:py-24 text-primary">
+<!-- AOS: fade-up -->
+<section id="team" class="bg-background py-16 md:py-24 text-primary" data-aos="fade-up">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Tim Profesional Kami</h2>
     @php
@@ -173,7 +174,9 @@ $timeline = [
       $position = !empty($terms) ? $terms[0]->name : '';
       $link = get_permalink(get_the_ID())
       @endphp
-      <x-attorney-card :image="$image" :name="$name" :position="$position" />
+      <div data-aos="fade-up">
+        <x-attorney-card :image="$image" :name="$name" :position="$position" />
+      </div>
       @endwhile
     </div>
     @php wp_reset_postdata() @endphp
@@ -226,12 +229,13 @@ $awards = [
 ],
 ];
 @endphp
-<section id="awards" class="bg-surface py-16 md:py-24 text-primary">
+<!-- AOS: fade-up -->
+<section id="awards" class="bg-surface py-16 md:py-24 text-primary" data-aos="fade-up">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Terpercaya dan Terkemuka</h2>
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-8 gap-x-12 lg:gap-x-32">
-      @foreach($awards as $award)
-      <div class="flex flex-col items-center text-center border-b border-gray-600">
+      @foreach($awards as $key => $award)
+      <div class="flex flex-col items-center text-center border-b border-gray-600" data-aos="fade-up" data-aos-delay="{{ $key * 100 }}">
         <a href="{{ $award['link'] }}" target="_blank" rel="noopener noreferrer">
           <img class="max-w-20 mx-auto mb-2" src="{{ $award['image'] }}" alt="{{ $award['name'] }}">
           <p class="text-sm">{{ $award['name'] }}</p>
@@ -266,13 +270,13 @@ $blogs = [
 ];
 @endphp
 
-<!-- Publikasi & Blog -->
-<section id="blog" class="bg-background py-16 md:py-24 text-primary">
+<!-- AOS: fade-up -->
+<section id="blog" class="bg-background py-16 md:py-24 text-primary" data-aos="fade-up">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Insights Hukum Terbaru</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      @foreach($blogs as $blog)
-      <div class="bg-surface rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+      @foreach($blogs as $key => $blog)
+      <div class="bg-surface/10 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="{{ $key * 100 }}">
         <a href="{{ $blog['link'] }}">
           <div class="w-full aspect-video bg-gray-300">
             <img class="w-full h-full object-cover" src="{{ $blog['image'] }}" alt="{{ $blog['title'] }}">
@@ -292,8 +296,8 @@ $blogs = [
 </section>
 
 
-<!-- Formulir Kontak -->
-<section id="contact" class="bg-surface py-16 md:py-24 text-primary">
+<!-- AOS: fade-up -->
+<section id="contact" class="bg-surface py-16 md:py-24 text-primary" data-aos="fade-up">
   <div class="container mx-auto px-4 text-center">
     <h2 class="text-3xl md:text-4xl font-bold mb-4 text-primary">Mari Terhubung</h2>
     <p class="text-lg mb-8 text-secondary">Jika Anda membutuhkan konsultasi, silakan hubungi kami. Tim kami akan segera

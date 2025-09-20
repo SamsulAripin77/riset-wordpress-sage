@@ -10,7 +10,7 @@
  ])
  
  <!-- Section Penghargaan (Awards) - FIXED -->
-    <section id="awards" class="bg-surface py-20 md:py-32">
+    <section id="awards" class="bg-surface py-20 md:py-32" data-aos="fade-up" data-aos-duration="1000">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                 <!-- Kolom Kiri: Teks -->

@@ -30,7 +30,7 @@
         }
 
         #main-header.scrolled .nav-link:hover {
-            color: #E74C3C;
+            color: #065F46;
         }
 
         /* --- Hamburger Menu --- */
@@ -89,7 +89,7 @@
                 </ul>
             </nav>
         @endif
-       <a href="#contact" class="bg-accent text-surface py-2 px-6 rounded-full hidden md:block hover:bg-primary transition-colors">Hubungi Kami</a>
+       <a href="#contact" class="bg-accent text-surface py-2 px-6 rounded-full hidden md:block hover:bg-accent transition-colors">Hubungi Kami</a>
         <div id="hamburger-button" class="md:hidden">
             <div class="hamburger">
                 <span class="hamburger-line"></span>
