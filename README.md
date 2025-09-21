@@ -56,6 +56,7 @@ tutor :
 - add aos : ok
 - hide wp-login
 - create reusable block with dinamic content padding,margin, background
+- polylang : hold
 
 ## Strukture
 

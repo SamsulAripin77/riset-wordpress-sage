@@ -1,39 +1,52 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('sections.banner-image', [
-        'title' => 'Keahlian Kami',
-    ])
 
-    @include('sections.simple-2-column')
+    @php
+        $page_keahlian_kami = get_field('page_keahlian_kami', '');
+    @endphp
+
 
 
     @php
-    $expertise_list = [
-        [
-            'title' => 'Hukum Korporat & Komersial',
-            'content' => 'Kami memberikan nasihat hukum yang komprehensif mengenai semua aspek hukum korporat dan komersial, termasuk pembentukan perusahaan, restrukturisasi, merger dan akuisisi, serta penyusunan kontrak komersial. Kami memastikan bisnis Anda berjalan sesuai dengan peraturan yang berlaku.'
-        ],
-        [
-            'title' => 'Penyelesaian Sengketa & Litigasi',
-            'content' => 'Tim litigasi kami memiliki pengalaman luas dalam mewakili klien di berbagai forum penyelesaian sengketa, termasuk pengadilan, arbitrase, dan mediasi. Kami mengembangkan strategi yang efektif untuk melindungi kepentingan Anda dalam sengketa perdata, pidana, maupun komersial.'
-        ],
-        [
-            'title' => 'Kekayaan Intelektual (IP)',
-            'content' => 'Kami membantu melindungi aset paling berharga Anda: kekayaan intelektual. Layanan kami mencakup pendaftaran merek dagang, hak cipta, paten, serta penegakan hukum terhadap pelanggaran hak kekayaan intelektual.'
-        ],
-        [
-            'title' => 'Hukum Ketenagakerjaan',
-            'content' => 'Kami memberikan panduan hukum terkait hubungan industrial, mulai dari penyusunan perjanjian kerja, peraturan perusahaan, hingga penyelesaian perselisihan hubungan industrial. Kami membantu perusahaan mematuhi undang-undang ketenagakerjaan yang kompleks.'
-        ],
-        [
-            'title' => 'Properti & Real Estat',
-            'content' => 'Layanan kami mencakup semua aspek hukum properti dan real estat, termasuk transaksi jual beli, sewa-menyewa, pembiayaan proyek, dan penyelesaian sengketa tanah. Kami memastikan transaksi properti Anda aman dan terjamin secara hukum.'
-        ],
-    ];
+        $section_banner_image = $page_keahlian_kami['section_banner_image'] ?? [];
+    @endphp
+    @include('sections.banner-image', [
+        'title' => $section_banner_image['title'],
+        'tagline' => $section_banner_image['tagline'],
+        'desc' => $section_banner_image['desc'],
+        'image' => $section_banner_image['image'],
+        'class' => $section_banner_image['class'],
+    ])
+
+
+    @php
+        $section_2_column = $page_keahlian_kami['section_simple_2_column'] ?? [];
+    @endphp
+    @include('sections.simple-2-column', [
+        'title' => $section_2_column['title'] ?? '',
+        'subtitle' => $section_2_column['tagline'],
+        'desc' => $section_2_column['desc'],
+        'class' => $section_2_column['class'],
+    ])
+
+
+    @php
+        $expertice_title = $page_keahlian_kami['section_keahlian_kami'] ?? [];
     @endphp
 
-    @include('sections.keahlian-kami')
+    @include('sections.keahlian-kami', [
+        'title' => $expertice_title['title'] ?? '',
+        'class' => $expertice_title['class'],
+    ])
 
-    @include('sections.other-news')
+    @php
+        $section_berita_lainnya = $page_keahlian_kami['section_berita_lainnya'] ?? [];
+    @endphp
+
+
+    @include('sections.other-news',[
+        'title' => $section_berita_lainnya['title'],
+        'class' => $section_berita_lainnya['class'],
+    ])
 @endsection

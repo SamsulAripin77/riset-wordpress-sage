@@ -8,11 +8,11 @@ $args = [
 $latest_posts = new WP_Query($args);
 @endphp
 
-@props(['bg' =>  'bg-background'])
+@props(['class' =>  'bg-background py-8 md:pt-16 md:pb-20', 'title' => 'Berita Lainnya'])
 
-<section class="py-8 md:pt-16 md:pb-20 max-md:px-4 {{$bg}}"  data-aos="fade-up">
+<section class="max-md:px-4 {{$class}}"  data-aos="fade-up">
     <div class="container mx-auto">
-        <h2 class="text-2xl font-bold text-primary mb-6 text-left">Berita Lainnya</h2>
+        <h2 class="text-2xl font-bold text-primary mb-6 text-left">{{$title}}</h2>
         @if ($latest_posts->have_posts())
             <div class="swiper otherNewsSwiper">
                 <div class="swiper-wrapper">
