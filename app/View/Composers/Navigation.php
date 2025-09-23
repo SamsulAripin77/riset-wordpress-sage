@@ -11,7 +11,8 @@ class Navigation extends Composer
      * List of views served by this composer.
      */
     protected static $views = [
-        'sections.header', // Sesuaikan nama view partial
+        'sections.header',
+        'sections.footer',
     ];
 
     public function with()
