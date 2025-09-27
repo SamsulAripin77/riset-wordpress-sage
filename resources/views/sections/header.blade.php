@@ -70,8 +70,30 @@
         }
 
         /* When mobile menu is open, hamburger lines are always dark */
-        .hamburger.active .hamburger-line {
+                .hamburger.active .hamburger-line {
             background-color: #2C3E50;
+        }
+
+        /* --- Mobile Menu --- */
+        #mobile-menu .nav-link {
+            color: #2C3E50;
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+
+        #mobile-menu .nav-link:hover {
+            color: #065F46;
+        }
+
+        #mobile-menu .mobile-menu {
+            background-color: white;
+            border-radius: 0.375rem;
+            /* box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); */
+            /* border: 1px solid #e5e7eb; */
+        }
+
+        #mobile-menu .mobile-menu > li:not(:last-child) {
+            border-bottom: 1px solid #e5e7eb;
         }
     </style>
 <!-- Header -->
@@ -99,9 +121,9 @@
         </div>
     </div>
     <!-- Mobile Menu Container -->
-    <div id="mobile-menu" class="hidden lg:hidden mt-4 rounded-md bg-white">
+    <div id="mobile-menu" class="hidden lg:hidden mt-4">
         @if (!empty($menu_items))
-            <ul class="mobile-menu divide-y divide-gray-200">
+            <ul class="mobile-menu">
                 @foreach ($menu_items as $item)
                     @include('partials.menu-item', ['item' => $item])
                 @endforeach
