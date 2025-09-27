@@ -1,6 +1,6 @@
 <!-- AOS: fade-up -->
 @props(['title' => 'Artikel Kami', 'class' => 'bg-background py-16 md:py-24 text-primary', 'blogs' => []])
-<section id="blog" class="" data-aos="fade-up">
+<section id="blog" class="{{$class}}" data-aos="fade-up">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">{{ $title }}</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

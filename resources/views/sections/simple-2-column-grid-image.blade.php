@@ -7,41 +7,73 @@
  @php
     $args = [
     'post_type' => 'awards',
-    'posts_per_page' => 4
+    'posts_per_page' => -1
     ];
-    $awards = new WP_Query($args);
+    $awards_query = new WP_Query($args);
+    $awards = $awards_query->posts;
+    $awards_chunks = array_chunk($awards, 4);
     @endphp
  <!-- Section Penghargaan (Awards) - FIXED -->
     <section id="awards" class="{{$class}}" data-aos="fade-up" data-aos-duration="1000">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                 <!-- Kolom Kiri: Teks -->
-                <div>
+                <div class="relative z-10 bg-surface h-full flex flex-col items-start justify-center p-8">
                     <h4 class="text-accent font-semibold uppercase tracking-wider">{{$title}}</h4>
                     <h2 class="text-3xl md:text-4xl font-bold text-primary mt-2">{{$subtitle}}</h2>
                     <p class="text-lg text-gray-700 leading-relaxed mt-4">{{$desc}}</p>
                 </div>
                 <!-- Kolom Kanan: Grid Gambar -->
                 <div>
-                    <div id="awards-grid" class="grid grid-cols-2 gap-6">
-                        @if ($awards->have_posts())
-                        @while ($awards->have_posts()) @php $awards->the_post() @endphp
-                         @php
-                            $image = get_the_post_thumbnail_url(get_the_ID(), 'full') ?: 'https://via.placeholder.com/400';
-                            $name = get_the_title();
-                            @endphp
-                        <div class="text-center award-item bg-white p-4 rounded-lg shadow-sm">
-                            <div>
-                                <div class="max-w-32 max-h-32 h-full w-full mx-auto rounded-lg flex items-center justify-center p-2 mb-3">
-                                <img src="{{ $image }}" alt="{{$name}}" class="w-full h-full object-contain">
+                    <div class="swiper-container awards-slider">
+                        <div class="swiper-wrapper">
+                            @foreach ($awards_chunks as $chunk)
+                            <div class="swiper-slide">
+                                <div class="grid grid-cols-2 gap-6">
+                                    @foreach ($chunk as $award)
+                                        @php
+                                            $image = get_the_post_thumbnail_url($award->ID, 'full') ?: 'https://via.placeholder.com/400';
+                                            $name = $award->post_title;
+                                        @endphp
+                                        <div class="text-center award-item bg-white p-4 rounded-lg shadow-sm">
+                                            <div>
+                                                <div class="max-w-32 max-h-32 h-full w-full mx-auto rounded-lg flex items-center justify-center p-2 mb-3">
+                                                    <img src="{{ $image }}" alt="{{$name}}" class="w-full h-full object-contain">
+                                                </div>
+                                                <p class="text-xs font-semibold">{{$name}}</p>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
                             </div>
-                            <p class="text-xs font-semibold">{{$name}}</p>
-                            </div>
+                            @endforeach
                         </div>
-                        @endwhile
-                        @endif
                     </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination mt-4 text-center"></div>
                 </div>
             </div>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var swiper = new Swiper('.awards-slider', {
+                loop: true,
+                spaceBetween: 30,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            });
+        });
+    </script>
+
+<style>
+    .swiper-pagination-bullet {
+        background-color: #d1d5db; /* gray-300 */
+    }
+    .swiper-pagination-bullet-active {
+        background-color: #bf9b30; /* accent color */
+    }
+</style>

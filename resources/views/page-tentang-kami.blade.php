@@ -25,7 +25,7 @@
         'title' => $section_2_column['title'] ?? '',
         'subtitle' => $section_2_column['tagline'] ?? '',
         'desc' => $section_2_column['desc'] ?? '',
-        'class' => $section_2_column['class'] ?? 'bg-backgroud py-8 md:pb-16 md:pt-16 max-md:px-4',
+        'class' => $section_2_column['class'] ?? 'bg-backgroud py-8 md:pb-16 md:pt-16 lg:py-24 xl:py-32 max-md:px-4',
     ])
 
 
