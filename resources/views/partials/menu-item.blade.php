@@ -1,6 +1,6 @@
 @props(['item'])
 
-<li class="">
+<li class="py-2">
     <a href="{{ $item['url'] }}" class="nav-link block md:inline-block py-2 px-4 md:p-0">{{ $item['title'] }}</a>
     @if (!empty($item['children']))
         <button class="submenu-toggle absolute top-0 right-0 mt-2 mr-2 md:hidden">

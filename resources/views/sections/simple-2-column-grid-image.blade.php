@@ -15,10 +15,10 @@
     @endphp
  <!-- Section Penghargaan (Awards) - FIXED -->
     <section id="awards" class="{{$class}}" data-aos="fade-up" data-aos-duration="1000">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto md:px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                 <!-- Kolom Kiri: Teks -->
-                <div class="relative z-10 bg-surface h-full flex flex-col items-start justify-center p-8">
+                <div class="relative z-10 bg-surface h-full flex flex-col items-start justify-center md:p-8">
                     <h4 class="text-accent font-semibold uppercase tracking-wider">{{$title}}</h4>
                     <h2 class="text-3xl md:text-4xl font-bold text-primary mt-2">{{$subtitle}}</h2>
                     <p class="text-lg text-gray-700 leading-relaxed mt-4">{{$desc}}</p>

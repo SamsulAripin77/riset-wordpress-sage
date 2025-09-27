@@ -81,7 +81,7 @@
             <img class="max-w-32" src="{{asset('resources/images/ambara-logo.png')}}" alt="Logo" srcset="">
         </a>
         @if (!empty($menu_items))
-            <nav class="hidden md:flex text-sm">
+            <nav class="hidden lg:flex text-sm">
                 <ul class="flex md:gap-x-4 lg:gap-x-12">
                     @foreach ($menu_items as $item)
                         @include('partials.menu-item', ['item' => $item])
@@ -89,8 +89,8 @@
                 </ul>
             </nav>
         @endif
-       <a href="/contact-us" class="bg-accent text-surface py-2 px-6 rounded-full hidden md:block hover:bg-accent transition-colors">Hubungi Kami</a>
-        <div id="hamburger-button" class="md:hidden">
+       <a href="/contact-us" class="bg-accent text-surface py-2 px-6 rounded-full hidden lg:block hover:bg-accent transition-colors">Hubungi Kami</a>
+        <div id="hamburger-button" class="lg:hidden">
             <div class="hamburger">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
@@ -99,9 +99,9 @@
         </div>
     </div>
     <!-- Mobile Menu Container -->
-    <div id="mobile-menu" class="hidden md:hidden mt-4 rounded-md">
+    <div id="mobile-menu" class="hidden lg:hidden mt-4 rounded-md bg-white">
         @if (!empty($menu_items))
-            <ul class="mobile-menu">
+            <ul class="mobile-menu divide-y divide-gray-200">
                 @foreach ($menu_items as $item)
                     @include('partials.menu-item', ['item' => $item])
                 @endforeach

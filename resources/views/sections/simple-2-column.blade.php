@@ -12,7 +12,7 @@
         )
 
 <section class="text-primary {{$class}}" data-aos="fade-up" data-aos-duration="1000">
-    <div class="container mx-auto px-4">
+    <div class="container mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
             {{-- Kolom Kiri --}}
             <div>
