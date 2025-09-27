@@ -46,17 +46,18 @@ tutor :
 - fixing responsive navbar : ok
 - clean asset resource : ok
 - fixing footer : ok
-- complete timeline
-- bikin cpt backend
-- polylang
-- load more & filter with alphine js
-- tambah border bootom with di navbar
-- pada pengacara tambahkan read more ke page pengacara
-- bedakan ukuran banner di desktop dan mobile : minta asset
+- complete timeline : ok
+- bikin cpt backend : ok
+- polylang : X
+- load more & filter with alphine js : ok
+- tambah border bootom with di navbar : ok
+- pada pengacara tambahkan read more ke page pengacara : ok
+- bedakan ukuran banner di desktop dan mobile : minta asset : ok
 - add aos : ok
 - hide wp-login
-- create reusable block with dinamic content padding,margin, background
+- create reusable block with dinamic content padding,margin, background : x
 - polylang : hold
+- backend contact us : x
 
 ## Strukture
 

@@ -142,6 +142,12 @@ function register_custom_api_routes() {
         'callback' => 'get_post_tags',
         'permission_callback' => '__return_true',
     ]);
+
+    register_rest_route('ambara/v1', '/contact', [
+        'methods' => 'POST',
+        'callback' => 'handle_contact_form_submission',
+        'permission_callback' => '__return_true',
+    ]);
 }
 
 function get_blog_posts(WP_REST_Request $request) {
@@ -299,3 +305,62 @@ function create_attorney_taxonomy() {
     ));
 }
 add_action('init', 'create_attorney_taxonomy', 0);
+
+function handle_contact_form_submission(WP_REST_Request $request) {
+    $params = $request->get_json_params();
+    $name = isset($params['name']) ? sanitize_text_field($params['name']) : '';
+    $email = isset($params['email']) ? sanitize_email($params['email']) : '';
+    $message = isset($params['message']) ? sanitize_textarea_field($params['message']) : '';
+
+    // Server-side validation
+    if (empty($name)) {
+        return new WP_Error('missing_field', 'Name is required.', ['status' => 400]);
+    }
+    if (empty($email) || !is_email($email)) {
+        return new WP_Error('invalid_email', 'A valid email is required.', ['status' => 400]);
+    }
+    if (empty($message)) {
+        return new WP_Error('missing_field', 'Message is required.', ['status' => 400]);
+    }
+
+    // Create a new post in the 'contacts' CPT
+    $post_id = wp_insert_post([
+        'post_title' => 'Contact from ' . $name,
+        'post_type' => 'contacts',
+        'post_status' => 'publish',
+    ]);
+
+    if (is_wp_error($post_id)) {
+        return new WP_Error('post_creation_failed', 'Failed to save submission.', ['status' => 500]);
+    }
+
+    // Save ACF fields
+    $contact_fields = [
+        'name' => $name,
+        'email' => $email,
+        'message' => $message,
+    ];
+    update_field('contacts', $contact_fields, $post_id);
+
+    // Data for the Blade template
+    $data = [
+        'name'    => $name,
+        'email'   => $email,
+        'message' => $message,
+    ];
+
+    // Render the Blade component into an HTML string
+    $email_body = \Roots\view('components.email-notification', $data)->render();
+
+    // Send email notification
+    $to = 'contact.samsularipin@gmail.com';
+    $subject = 'New Contact Form Submission from ' . $name;
+    $headers = [
+        'Content-Type: text/html; charset=UTF-8',
+        'Reply-To: ' . $name . ' <' . $email . '>',
+    ];
+
+    wp_mail($to, $subject, $email_body, $headers);
+
+    return new WP_REST_Response(['success' => true, 'message' => 'Your message has been sent successfully!'], 200);
+}

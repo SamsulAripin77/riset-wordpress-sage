@@ -1,5 +1,5 @@
 <!-- AOS: fade-up -->
-@props(['awards' => [], 'class' => 'bg-background py-16 md:py-24 text-primary', 'title' => 'Pengakuan, Penghargaan & Afiliasi'])
+@props(['awards' => [], 'class' => 'bg-surface py-16 md:py-24 text-primary', 'title' => 'Pengakuan, Penghargaan & Afiliasi'])
 <section id="awards" class="{{ $class }}" data-aos="fade-up">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">{{ $title }}</h2>

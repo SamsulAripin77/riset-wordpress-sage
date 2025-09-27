@@ -24,7 +24,5 @@ class ThemeServiceProvider extends SageServiceProvider
     public function boot()
     {
         parent::boot();
-
-        view()->composer('sections.contact', \App\View\Composers\Contact::class);
     }
 }

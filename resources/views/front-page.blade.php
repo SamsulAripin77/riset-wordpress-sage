@@ -4,22 +4,26 @@ Template Name: Home
 
 @extends('layouts.app')
 @section('content')
+@php
+$page_home = get_field('page_home');
+@endphp
+
 <!-- AOS: fade-in -->
 @include('sections.hero', [
-    'desktop_image' => asset('resources/images/ambara.png'),
-    'mobile_image' => asset('resources/images/ambara-mobile.png'),
-    'text' => 'Kami hadir untuk menyederhanakan masalah hukum Anda dengan pendekatan yang cermat dan profesional.',
-    'button_text' => 'Hubungi Kami',
-    'button_link' => '#services',
+    'desktop_image' => $page_home['sections_hero']['desktop_image'],
+    'mobile_image' => $page_home['sections_hero']['mobile_image'],
+    'text' => $page_home['sections_hero']['text'],
+    'button_text' => $page_home['sections_hero']['hubungi_kami']['title'],
+    'button_link' => $page_home['sections_hero']['hubungi_kami']['url'],
 ])
 
 <!-- AOS: fade-up -->
 @include('sections.founder', [
-    'title' => 'Founder ambaraadvocate',
-    'subtitle' => 'Lebih Dari Sekadar Pengacara',
-    'description' => 'Ambara Advocate adalah firma hukum yang berdedikasi untuk memberikan layanan hukum komprehensif, didukung oleh tim ahli yang berkomitmen pada integritas dan keunggulan. Kami percaya bahwa setiap kasus adalah unik dan layak mendapatkan pendekatan personal yang terperinci. Dengan pemahaman mendalam tentang lanskap hukum yang terus berubah, kami siap menjadi mitra terpercaya Anda.',
-    'image' => asset('resources/images/ceo.jpg'),
-    'class' => 'bg-surface py-16 md:py-24 pt-20 text-primary'
+    'title' => $page_home['sections_founder']['title'],
+    'subtitle' => $page_home['sections_founder']['subtitle'],
+    'description' => $page_home['sections_founder']['description'],
+    'image' => $page_home['sections_founder']['image'],
+    'class' => $page_home['sections_founder']['class'],
 ])
 
 <!-- Layanan Kami -->
@@ -43,7 +47,7 @@ if ($services_query->have_posts()) {
 }
 wp_reset_postdata();
 @endphp
-@include('sections.services', ['title' => 'Layanan Kami', 'services' => $services, 'class' => 'bg-background py-16 md:py-24 text-primary'])
+@include('sections.services', ['title' => $page_home['sections_services']['title'], 'services' => $services, 'class' => $page_home['sections_services']['class']])
 
 
 <!-- Sejarah Perusahaan -->
@@ -69,12 +73,12 @@ if ($histories_query->have_posts()) {
 wp_reset_postdata();
 @endphp
 
-@include('sections.history', ['histories' => $histories, 'class' => 'bg-surface py-16 md:py-24 text-primary', 'title' => 'Jejak Langkah Ambara Advocate'])
+@include('sections.history', ['histories' => $histories, 'class' => $page_home['sections_history']['class'], 'title' => $page_home['sections_history']['title']])
 
 <!-- AOS: fade-up -->
 @include('sections.team',[
-    'title' => 'Tim Profesional Kami',
-    'class' => 'bg-background py-16 md:py-24 text-primary'
+    'title' => $page_home['sections_team']['title'],
+    'class' => $page_home['sections_team']['class'],
 ])
 
 <!-- Section Pengakuan, Penghargaan & Afiliasi -->
@@ -99,7 +103,7 @@ if ($awards_query->have_posts()) {
 }
 wp_reset_postdata();
 @endphp
-@include('sections.awards', ['awards' => $awards, 'class' => 'bg-background py-16 md:py-24 text-primary', 'title' => 'Pengakuan, Penghargaan & Afiliasi'])
+@include('sections.awards', ['awards' => $awards, 'class' => $page_home['sections_awards']['class'], 'title' => $page_home['sections_awards']['title']])
 
 <!-- Publikasi & Blog -->
 @php
@@ -124,7 +128,7 @@ if ($blogs_query->have_posts()) {
 }
 wp_reset_postdata();
 @endphp
-@include('sections.blog', ['blogs' => $blogs, 'title' => 'Artikel Kami', 'class' => 'bg-background py-16 md:py-24 text-primary'])
+@include('sections.blog', ['blogs' => $blogs, 'title' => $page_home['sections_blog']['title'], 'class' => $page_home['sections_blog']['class']])
 
 
 @include('sections.contact')
