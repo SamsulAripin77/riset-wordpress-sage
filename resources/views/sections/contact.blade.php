@@ -1,6 +1,5 @@
-@php
-$contact = get_field('page_home')['section_contact'];
-@endphp
+
+@props(['contact' => []])
 <section id="contact" class="bg-surface py-16 md:py-24 text-primary" data-aos="fade-up"
     x-data="{
         formData: {

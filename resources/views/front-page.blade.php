@@ -130,7 +130,9 @@ wp_reset_postdata();
 @endphp
 @include('sections.blog', ['blogs' => $blogs, 'title' => $page_home['sections_blog']['title'], 'class' => $page_home['sections_blog']['class']])
 
-
-@include('sections.contact')
+@php
+$contact = get_field('page_home')['section_contact'];
+@endphp
+@include('sections.contact', ['contact' => $contact])
 
 @endsection

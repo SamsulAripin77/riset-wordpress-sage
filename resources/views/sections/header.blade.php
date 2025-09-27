@@ -89,7 +89,7 @@
                 </ul>
             </nav>
         @endif
-       <a href="#contact" class="bg-accent text-surface py-2 px-6 rounded-full hidden md:block hover:bg-accent transition-colors">Hubungi Kami</a>
+       <a href="/contact-us" class="bg-accent text-surface py-2 px-6 rounded-full hidden md:block hover:bg-accent transition-colors">Hubungi Kami</a>
         <div id="hamburger-button" class="md:hidden">
             <div class="hamburger">
                 <span class="hamburger-line"></span>
