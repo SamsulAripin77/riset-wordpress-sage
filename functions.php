@@ -92,25 +92,20 @@ add_action('wp_enqueue_scripts', function () {
     handle_glboal_js_var($handle);
 });
 
-function handle_glboal_js_var($handle){
-      global $post;
-      $slug = $post->post_name;
-      $is_loggedin = false;
-      $current_user = wp_get_current_user();
+function handle_glboal_js_var($handle = 'loader-script'){
+    $slug = get_query_var('produk_slug') ? sanitize_title(get_query_var('produk_slug')) : '';
 
-        if (is_user_logged_in()) {
-            $is_loggedin 	= true;
-        }
+    $is_loggedin = is_user_logged_in();
 
-      wp_localize_script($handle, 'script_vars', [
+    wp_localize_script($handle, 'script_vars', [
         'ajaxurl'    => admin_url('admin-ajax.php'),
         'ajax_nonce' => wp_create_nonce("ajax_nonce_{$slug}"),
-        'slug'  => $slug,
-        'is_loggedin' => $is_loggedin,
-        'site_url'     => get_site_url(),
-        'home_url'     => home_url('/'),
-        'locale'       => get_locale(),
-        'is_rtl'       => is_rtl(),
+        'slug'       => $slug,
+        'is_loggedin'=> $is_loggedin,
+        'site_url'   => get_site_url(),
+        'home_url'   => home_url('/'),
+        'locale'     => get_locale(),
+        'is_rtl'     => is_rtl(),
         'is_frontpage' => is_front_page(),
         'is_archive'   => is_archive(),
         'is_single'    => is_single(),
@@ -118,4 +113,24 @@ function handle_glboal_js_var($handle){
         'is_home'      => is_home(),
     ]);
 }
+
+
+/**
+ * Custom rewrite rule untuk detail produk
+ */
+add_action('init', function () {
+    add_rewrite_rule(
+        '^detail-produk/([^/]*)/?',
+        'index.php?pagename=detail-produk&produk_slug=$matches[1]',
+        'top'
+    );
+});
+
+/**
+ * Tambahin query var supaya bisa diambil
+ */
+add_filter('query_vars', function ($vars) {
+    $vars[] = 'produk_slug';
+    return $vars;
+});
 
