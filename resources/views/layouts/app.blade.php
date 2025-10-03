@@ -41,6 +41,26 @@
   @php(do_action('get_footer'))
   @php(wp_footer())
   @stack('scripts')
-</body>
 
+  <!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  const swiper = new Swiper(".myHeroSwiper", {
+    loop: true,
+    autoplay: {
+      delay: 3000, // 3 detik
+      disableOnInteraction: false,
+    },
+    effect: "fade",
+    fadeEffect: {
+      crossFade: true, // biar slide lama langsung hilang
+    },
+  });
+</script>
+
+</body>
 </html>

@@ -2,85 +2,90 @@
     $current_url = url()->current();
 @endphp
 
-<nav class="border-gray-200 bg-blue-50" x-data="{ mobileOpen: false }">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-    <a href="{{ home_url('/') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Logo" />
-        <span class="self-center text-2xl font-semibold whitespace-nowrap text-blue-700">{{ $siteName }}</span>
-    </a>
-    <button
-        @click="mobileOpen = !mobileOpen"
-        :aria-expanded="mobileOpen"
-        type="button"
-        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-700 rounded-lg md:hidden hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-200"
-        aria-controls="navbar-dropdown"
-    >
-        <span class="sr-only">Open main menu</span>
-        <svg class="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 17 14">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M1 1h15M1 7h15M1 13h15"/>
+<nav class="bg-white sticky top-0 z-50 shadow-md" x-data="{ mobileOpen: false }">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-4">
+
+      <!-- Logo -->
+      <div class="flex-shrink-0 flex items-center">
+        <a href="{{ url('/') }}" class="flex items-center space-x-2">
+          <img src="{{ get_theme_file_uri('public/images/log.png') }}" alt="RasaNusa Logo" class="h-8 w-auto">
+        </a>
+      </div>
+
+      <!-- Menu Desktop -->
+      <div class="hidden md:flex space-x-6 items-center">
+        <a href="{{ url('/') }}" class="px-4 py-2 text-sm font-medium rounded-full text-gray-600 hover:bg-red-600 hover:text-white">
+          Beranda
+        </a>
+         <a href="{{ get_permalink(get_page_by_path('menu')) }}" 
+          class="px-4 py-2 text-sm font-medium rounded-full text-gray-600 hover:bg-red-600 hover:text-white">
+          Menu
+        </a>
+        <a href="{{ url('/tentang') }}" class="px-4 py-2 text-sm font-medium rounded-full text-gray-600 hover:bg-red-600 hover:text-white">
+          Tentang Kami
+        </a>
+       <a href="{{ get_permalink(get_page_by_path('promo')) }}" 
+          class="px-4 py-2 text-sm font-medium rounded-full text-gray-600 hover:bg-red-600 hover:text-white">
+          Promo
+        </a>
+        <a href="{{ url('/kontak') }}" class="px-4 py-2 text-sm font-medium rounded-full text-gray-600 hover:bg-red-600 hover:text-white">
+          Kontak / Reservasi
+        </a>
+      </div>
+
+      <!--Search-->
+     <div class="flex items-center space-x-4">
+          <button class="text-gray-600 hover:text-red-600">
+      <svg xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          class="w-6 h-6">
+        <path fill-rule="evenodd"
+              d="M12.9 14.32a8 8 0 111.414-1.414l4.387 4.387a1 1 0 01-1.414 1.414ld-4.387-4.387zM8 14a6 6 0 100-12 6 6 0 000 12z"
+              clip-rule="evenodd" />
+          </svg>
+        </button>
+     
+        <!-- Cart -->
+      <button class="text-gray-600 hover:text-red-600">
+        <svg xmlns="http://www.w3.org/2000/svg" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke-width="1.5" 
+            stroke="currentColor" 
+            class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 2.25h1.5l1.5 12.75h13.5l1.5-9H6.75M9 20.25a.75.75 0 100-1.5.75.75 0 000 1.5zm8.25 0a.75.75 0 100-1.5.75.75 0 000 1.5z" />
         </svg>
-    </button>
-    <div :class="mobileOpen ? 'block' : 'hidden'" class="w-full md:block md:w-auto transition-all duration-200" id="navbar-dropdown">
-      <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-blue-100 rounded-lg bg-blue-50 md:space-x-8 md:flex-row md:mt-0 md:border-0 md:bg-transparent">
-        @foreach ($menu_items as $item)
-          @php
-              $isActive = rtrim($item['url'], '/') === rtrim($current_url, '/');
-          @endphp
-          @if (!empty($item['children']))
-            <li class="relative" x-data="{ dropdownOpen: false }">
-                <a
-                  href="{{ $item['url'] }}"
-                  @click.prevent="dropdownOpen = !dropdownOpen"
-                  @mouseenter.window="if(window.innerWidth >= 768) dropdownOpen = true"
-                  @mouseleave.window="if(window.innerWidth >= 768) dropdownOpen = false"
-                  :class="dropdownOpen ? 'md:text-gray-900' : ''"
-                  class="flex items-center justify-between w-full py-2 px-3 text-gray-700 rounded-sm hover:text-blue-700 hover:bg-blue-100 md:hover:bg-transparent md:p-0 md:w-auto {{ $isActive ? 'bg-blue-100 text-gray-900 font-semibold md:bg-transparent' : '' }}"
-                >
-                  {{ $item['title'] }}
-                  <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" fill="none" viewBox="0 0 10 6">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="m1 1 4 4 4-4"/>
-                  </svg>
-                </a>
-                <!-- Dropdown menu -->
-                <div
-                  x-show="dropdownOpen"
-                  x-transition:enter="transition ease-out duration-150"
-                  x-transition:enter-start="opacity-0 scale-95"
-                  x-transition:enter-end="opacity-100 scale-100"
-                  x-transition:leave="transition ease-in duration-100"
-                  x-transition:leave-start="opacity-100 scale-100"
-                  x-transition:leave-end="opacity-0 scale-95"
-                  class="z-20 absolute left-0 mt-1 font-normal bg-white divide-y divide-blue-100 rounded-lg shadow w-44"
-                  @click.away="dropdownOpen = false"
-                  style="display: none;"
-                >
-                    <ul class="py-2 text-sm text-gray-700">
-                        @foreach ($item['children'] as $child)
-                          @php
-                              $isChildActive = rtrim($child['url'], '/') === rtrim($current_url, '/');
-                          @endphp
-                          <li>
-                            <a href="{{ $child['url'] }}"
-                               class="block px-4 py-2 hover:bg-blue-100 hover:text-blue-700 rounded-sm {{ $isChildActive ? 'bg-blue-100 text-gray-900 font-semibold' : '' }}">
-                              {{ $child['title'] }}
-                            </a>
-                          </li>
-                        @endforeach
-                    </ul>
-                </div>
-            </li>
-          @else
-            <li>
-              <a href="{{ $item['url'] }}"
-                 class="block py-2 px-3 rounded-sm text-gray-700 hover:text-blue-700 hover:bg-blue-100 md:hover:bg-transparent md:p-0 {{ $isActive ? 'bg-blue-100 text-gray-900 font-semibold md:bg-transparent' : '' }}">
-                {{ $item['title'] }}
-              </a>
-            </li>
-          @endif
-        @endforeach
-      </ul>
+      </button>
+
+        <!-- User -->
+        <button class="text-gray-600 hover:text-red-600">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 21a8.25 8.25 0 0115 0" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Hamburger Mobile -->
+      <div class="md:hidden flex items-center">
+      <button @click="mobileOpen = !mobileOpen" class="md:hidden text-gray-600 hover:text-red-600">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 6h18M3 12h18M3 18h18" />
+          </svg>
+        </button>
+      </div>
+
     </div>
+  </div>
+
+  <!-- Menu Mobile -->
+  <div x-show="mobileOpen" class="md:hidden bg-white p-4 space-y-2 shadow-md">
+    <a href="{{ url('/') }}" class="block px-4 py-2 rounded text-gray-600 hover:bg-red-600 hover:text-white">Beranda</a>
+    <a href="{{ url('/menu') }}" class="block px-4 py-2 rounded text-gray-600 hover:bg-red-600 hover:text-white">Menu</a>
+    <a href="{{ url('/tentang') }}" class="block px-4 py-2 rounded text-gray-600 hover:bg-red-600 hover:text-white">Tentang Kami</a>
+    <a href="{{ url('/promo') }}" class="block px-4 py-2 rounded text-gray-600 hover:bg-red-600 hover:text-white">Promo</a>
+    <a href="{{ url('/kontak') }}" class="block px-4 py-2 rounded text-gray-600 hover:bg-red-600 hover:text-white">Kontak / Reservasi</a>
   </div>
 </nav>
