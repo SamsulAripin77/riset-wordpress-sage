@@ -116,3 +116,8 @@ tutor :
   - banner image
   - headline
   - google map(with link more), nama kantor, alamat lengkap, contacts, 
+
+
+  next fix ; 
+  - hamburger tidak muncul di mobile
+  - margin offset di mobile
