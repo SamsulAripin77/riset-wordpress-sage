@@ -1,6 +1,6 @@
 <!-- AOS: fade-up -->
 @props(['histories' => [], 'class' => 'bg-surface py-16 md:py-24 text-primary', 'title' => 'Jejak Langkah Ambara Advocate'])
-<section id="history" class="{{ $class }}" data-aos="fade-up">
+<section id="history" class="{{ $class }} max-md:overflow-hidden" data-aos="fade-up">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">{{ $title }}</h2>
     <div class="relative max-w-4xl mx-auto">

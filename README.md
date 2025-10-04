@@ -59,6 +59,14 @@ tutor :
 - polylang : hold
 - backend contact us : x
 
+# strategi deployment
+- isi kontent page
+- isi post dan cpt
+- isi footer
+- change email provider
+- change logo nabar & image, banner butuh 2 versi image, dan logo butuh yang warna puth
+- single attorney butuch acf pro
+
 ## Strukture
 
 + homepage
@@ -116,7 +124,6 @@ tutor :
   - banner image
   - headline
   - google map(with link more), nama kantor, alamat lengkap, contacts, 
-
 
   next fix ; 
   - hamburger tidak muncul di mobile

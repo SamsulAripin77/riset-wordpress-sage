@@ -21,16 +21,25 @@
 
     <script type="module">
         tailwind.config = {
-    theme: {
-         container: {
-      padding: {
-        DEFAULT: '1rem',
-        sm: '2rem',
-        lg: '4rem',
-        xl: '5rem',
-        '2xl': '6rem',
-      },
-    },
+        theme: {
+            
+            container: {
+                screens: {
+                        // sm: '640px',
+                        // md: '900px',
+                        // lg: '1024px',
+                        // xl: '1280px',
+                        // '2xl': '1536px',
+                    },
+                center: true,
+                padding: {
+                    DEFAULT: '1rem',
+                    sm: '2rem',
+                    lg: '4rem',
+                    xl: '5rem',
+                    '2xl': '6rem',
+                },
+        },
       extend: {
         fontFamily: {
           crimson: ['Crimson Text', 'serif'],
@@ -84,7 +93,6 @@
     </div>
     @php(do_action('get_footer'))
     @php(wp_footer())
-    @stack('scripts')
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -127,6 +135,7 @@
         });
     });
     </script>
+    @stack('scripts')
 
 </body>
 

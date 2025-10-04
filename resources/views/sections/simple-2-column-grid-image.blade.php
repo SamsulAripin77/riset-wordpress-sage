@@ -14,7 +14,7 @@
     $awards_chunks = array_chunk($awards, 4);
     @endphp
  <!-- Section Penghargaan (Awards) - FIXED -->
-    <section id="awards" class="{{$class}}" data-aos="fade-up" data-aos-duration="1000">
+    <section id="awards" class="{{$class}} max-md:overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
         <div class="container mx-auto md:px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                 <!-- Kolom Kiri: Teks -->
@@ -56,7 +56,8 @@
         </div>
     </section>
 
-    <script>
+   @push('scripts')
+        <script>
         document.addEventListener('DOMContentLoaded', function () {
             var swiper = new Swiper('.awards-slider', {
                 loop: true,
@@ -68,6 +69,7 @@
             });
         });
     </script>
+   @endpush
 
 <style>
     .swiper-pagination-bullet {

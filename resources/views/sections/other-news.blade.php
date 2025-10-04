@@ -17,7 +17,7 @@ $latest_posts = new WP_Query($args);
             <div class="swiper otherNewsSwiper">
                 <div class="swiper-wrapper">
                     @while ($latest_posts->have_posts()) @php $latest_posts->the_post() @endphp
-                        <div class="swiper-slide h-full">
+                        <div class="swiper-slide h-full min-w-[320px]">
                             <div class="bg-surface/10 rounded-lg shadow-md overflow-hidden group h-full">
                                 <a href="{{ get_permalink() }}" class="block h-full">
                                     @if (has_post_thumbnail())
